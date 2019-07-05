@@ -22,3 +22,4 @@ while (i<=len(Data_l)) :
     #   os.system(cmd_b)
 
     i=i+1
+sqlut banane
