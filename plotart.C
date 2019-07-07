@@ -16,7 +16,7 @@
 #include "vector"
 
 
-void plotLepPt(){
+void plotart(){
   TChain plot_550_520("bdttree");
 
   // access bdtt
