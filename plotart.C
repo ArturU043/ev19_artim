@@ -56,7 +56,7 @@ void plotLepPt(){
   //COMPARE TCanvas
 
   TCanvas *comp = new TCanvas("comp","",8000,8000);
-  comp.divide(4,4) ;
+  //comp.divide(4,4) ;
 
   pl_lepPt->Draw("");
   pl_dr->Draw("same");
@@ -73,6 +73,6 @@ void plotLepPt(){
   pl_jet_HB_csv->Draw("same");
 
   //SAVE
-  comp->SaveAS("compare_histograms_550_520.pdf");
+  comp->SaveAs("compare_histograms_550_520.pdf");
 
 }
