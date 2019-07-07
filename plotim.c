@@ -13,7 +13,7 @@ string newname[12]={"new_XS", "new_Jet1Pt", "new_Met", "new_mt", "new_LepEta", "
 string oldname[12]= {"XS", "Jet1Pt", "Met", "mt", "LepEta", "LepChg", "HT", "NbLoose", "Njet", "JetHBpt", "DrJetHBLep","JetHBCSV"};
 
 //new graphs
-i=0;
+int i=0;
 
 while (i<12){
   //TH1D* newname[i] = new TH1D("newname[i]", "oldname[i]", 200,0,200);
