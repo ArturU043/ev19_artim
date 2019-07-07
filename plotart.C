@@ -20,7 +20,7 @@ void plotLepPt(){
   TChain plot_550_520("bdttree");
 
   // access bdtt
-  plot_550_520.add("/home/t3cms/dbastos/LSTORE/Stop4Body/nTuples16_v2017-10-19_test/T2DegStop_550_520.root");
+  plot_550_520.Add("/home/t3cms/dbastos/LSTORE/Stop4Body/nTuples16_v2017-10-19_test/T2DegStop_550_520.root");
 
   // plot create
   TH1D* pl_lepPt = new TH1D("pl_lepPt", "lepPT", 200,0,200);
@@ -55,7 +55,7 @@ void plotLepPt(){
 
   //COMPARE TCanvas
 
-  TCanvas *comp = new TCanvas("comp",8000,8000);
+  TCanvas *comp = new TCanvas("comp","",8000,8000);
   comp.divide(4,4) ;
 
   pl_lepPt->Draw("");
