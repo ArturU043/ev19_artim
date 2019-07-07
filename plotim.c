@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-void redraw(){
+void plotim(){
 
 // find files
 
