@@ -1,0 +1,31 @@
+{
+//========= Macro generated from object: pl_Nb/Nbloose
+//========= by ROOT version6.10/02
+   
+   TH1D *pl_Nb__5 = new TH1D("pl_Nb__5","Nbloose",200,0,200);
+   pl_Nb__5->SetBinContent(1,7869);
+   pl_Nb__5->SetBinContent(2,2539);
+   pl_Nb__5->SetBinContent(3,505);
+   pl_Nb__5->SetBinContent(4,80);
+   pl_Nb__5->SetBinContent(5,6);
+   pl_Nb__5->SetBinContent(6,1);
+   pl_Nb__5->SetBinContent(7,1);
+   pl_Nb__5->SetEntries(11001);
+
+   ci = TColor::GetColor("#000099");
+   pl_Nb__5->SetLineColor(ci);
+   pl_Nb__5->GetXaxis()->SetLabelFont(42);
+   pl_Nb__5->GetXaxis()->SetLabelSize(0.035);
+   pl_Nb__5->GetXaxis()->SetTitleSize(0.035);
+   pl_Nb__5->GetXaxis()->SetTitleFont(42);
+   pl_Nb__5->GetYaxis()->SetLabelFont(42);
+   pl_Nb__5->GetYaxis()->SetLabelSize(0.035);
+   pl_Nb__5->GetYaxis()->SetTitleSize(0.035);
+   pl_Nb__5->GetYaxis()->SetTitleOffset(0);
+   pl_Nb__5->GetYaxis()->SetTitleFont(42);
+   pl_Nb__5->GetZaxis()->SetLabelFont(42);
+   pl_Nb__5->GetZaxis()->SetLabelSize(0.035);
+   pl_Nb__5->GetZaxis()->SetTitleSize(0.035);
+   pl_Nb__5->GetZaxis()->SetTitleFont(42);
+   pl_Nb__5->Draw("");
+}
