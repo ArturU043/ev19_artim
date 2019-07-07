@@ -18,8 +18,11 @@ int i=0;
 while (i<12){
   //TH1D* newname[i] = new TH1D("newname[i]", "oldname[i]", 200,0,200);
   //bdttree->Draw("oldname[i]>>newname[i]");
-  printf("%s", newname[i]) \n;
-  printf("%s", oldname[i]);
+  string a = newname[i]
+  string b = oldname [i]
+  
+  printf("%s"\n, "a") ;
+  printf("%s"\n, "b") ;
   i=i+1;
 }
 
