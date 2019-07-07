@@ -56,7 +56,7 @@ void plotart(){
   //Create and divide TCanvas
 
   TCanvas *c1 = new TCanvas("c1","",8000,8000);
-  c1->divide(4,4) ;
+  c1->Divide(4,4) ;
 
   //Plot those graph!
   c1->cd(1);
