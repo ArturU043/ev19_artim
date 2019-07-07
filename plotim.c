@@ -13,7 +13,7 @@ TChain uno("bdttre");
 string newname[20]={"new_XS", "new_Jet1Pt", "new_Met", "new_mt", "new_LepEta", "new_LepChg", "new_HT", "new_NbLoose", "new_Njet", "new_JetHBpt", "new_DrJetHBLep","new_JetHBCSV"};
 string oldname[20]= {"XS", "Jet1Pt", "Met", "mt", "LepEta", "LepChg", "HT", "NbLoose", "Njet", "JetHBpt", "DrJetHBLep","JetHBCSV"};
 
-printf("%s", newname[20]={3});
+printf("%s", newname[20].c_str(3));
 
 
 //new graphs
