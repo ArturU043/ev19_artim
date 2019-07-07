@@ -16,11 +16,11 @@
 #include "vector"
 
 
-void plotLepPt(){
-  Tchain plot_550_520("bdttree");
+void plotart(){
+  TChain plot_550_520("bdttree");
 
   // access bdtt
-  plot_550_520.add("/home/t3cms/dbastos/LSTORE/Stop4Body/nTuples16_v2017-10-19_test/T2DegStop_550_520.root");
+  plot_550_520.Add("/home/t3cms/dbastos/LSTORE/Stop4Body/nTuples16_v2017-10-19_test/T2DegStop_550_520.root");
 
   // plot create
   TH1D* pl_lepPt = new TH1D("pl_lepPt", "lepPT", 200,0,200);
@@ -55,8 +55,8 @@ void plotLepPt(){
 
   //COMPARE TCanvas
 
-  TCanvas *comp();
-  comp.divide(4,4) ;
+  TCanvas *comp = new TCanvas("comp","",8000,8000);
+  //comp.divide(4,4) ;
 
   pl_lepPt->Draw("");
   pl_dr->Draw("same");
@@ -73,6 +73,6 @@ void plotLepPt(){
   pl_jet_HB_csv->Draw("same");
 
   //SAVE
-  comp->SaveAS(/home/t3cms/ev19u043/LSTORE/ev19_artim/compare_histograms_550_520.pdf)
+  comp->SaveAs("compare_histograms_550_520.pdf");
 
 }
