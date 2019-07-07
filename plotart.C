@@ -53,26 +53,56 @@ void plotart(){
   plot_550_520.Draw("JetHBCSV>>pl_jet_HB_csv");
 
 
+
+
+// SAVE PLOTS
+pl_dr->SaveAs("plot_Dr.pdf");
+pl_ht->SaveAs("plot_HT.pdf");
+pl_xs->SaveAs("plot_XS.pdf");
+pl_mt->SaveAs("plot_mt.pdf");
+pl_Nb->SaveAs("plot_NbLoose.pdf");
+pl_met->SaveAs("plot_Met.pdf");
+pl_Njet->SaveAs("plot_Njet1.pdf");
+pl_lepPt->SaveAs("plot_LepPt.pdf");
+pl_jet_pt->SaveAs("plot_JetPt.pdf");
+pl_jet_HB->SaveAs("plot_JetHB.pdf");
+pl_lep_chg->SaveAs("plot_lepCHG.pdf");
+pl_Lep_Eta->SaveAs("plot_lepEta.pdf");
+pl_jet_HB_csv->SaveAs("plot_JetHbCSV.pdf");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   //COMPARE TCanvas
 
-  TCanvas *c1 = new TCanvas("c1","",8000,8000);
+///  TCanvas *c1 = new TCanvas("c1","",8000,8000);
   //comp.divide(4,4) ;
 
-  pl_lepPt->Draw();
-  pl_dr->Draw();
-  pl_ht->Draw();
-  pl_xs->Draw();
-  pl_Nb->Draw();
-  pl_mt->Draw();
-  pl_met->Draw();
-  pl_Njet->Draw();
-  pl_jet_pt->Draw();
-  pl_jet_HB->Draw();
-  pl_Lep_Eta->Draw();
-  pl_lep_chg->Draw();
-  pl_jet_HB_csv->Draw();
+//  pl_lepPt->Draw();
+//  pl_dr->Draw();
+//  pl_ht->Draw();
+//  pl_xs->Draw();
+//  pl_Nb->Draw();
+//  pl_mt->Draw();
+//  pl_met->Draw();
+//  pl_Njet->Draw();
+//  pl_jet_pt->Draw();
+//  pl_jet_HB->Draw();
+//  pl_Lep_Eta->Draw();
+//  pl_lep_chg->Draw();
+//  pl_jet_HB_csv->Draw();
 
   //SAVE
-  c1->SaveAs("compare_histograms_550_520.pdf");
+//  c1->SaveAs("compare_histograms_550_520.pdf");
 
 }
