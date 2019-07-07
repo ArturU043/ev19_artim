@@ -55,24 +55,24 @@ void plotart(){
 
   //COMPARE TCanvas
 
-  TCanvas *comp = new TCanvas("comp","",8000,8000);
+  TCanvas *c1 = new TCanvas("c1","",8000,8000);
   //comp.divide(4,4) ;
 
-  pl_lepPt->Draw("");
-  pl_dr->Draw("same");
-  pl_ht->Draw("same");
-  pl_xs->Draw("same");
-  pl_Nb->Draw("same");
-  pl_mt->Draw("same");
-  pl_met->Draw("same");
-  pl_Njet->Draw("same");
-  pl_lepPt->Draw("same");
-  pl_jet_HB->Draw("same");
-  pl_Lep_Eta->Draw("same");
-  pl_lep_chg->Draw("same");
-  pl_jet_HB_csv->Draw("same");
+  pl_lepPt->Draw();
+  pl_dr->Draw();
+  pl_ht->Draw();
+  pl_xs->Draw();
+  pl_Nb->Draw();
+  pl_mt->Draw();
+  pl_met->Draw();
+  pl_Njet->Draw();
+  pl_jet_pt->Draw();
+  pl_jet_HB->Draw();
+  pl_Lep_Eta->Draw();
+  pl_lep_chg->Draw();
+  pl_jet_HB_csv->Draw();
 
   //SAVE
-  comp->SaveAs("compare_histograms_550_520.pdf");
+  c1->SaveAs("compare_histograms_550_520.pdf");
 
 }
