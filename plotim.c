@@ -13,7 +13,7 @@ TChain uno("bdttre");
 string newname[20]={"new_XS", "new_Jet1Pt", "new_Met", "new_mt", "new_LepEta", "new_LepChg", "new_HT", "new_NbLoose", "new_Njet", "new_JetHBpt", "new_DrJetHBLep","new_JetHBCSV"};
 string oldname[20]= {"XS", "Jet1Pt", "Met", "mt", "LepEta", "LepChg", "HT", "NbLoose", "Njet", "JetHBpt", "DrJetHBLep","JetHBCSV"};
 
-printf("%s", newname.str(3));
+printf("%s", newname[20].str(3));
 
 
 //new graphs
@@ -28,9 +28,9 @@ while (i<12; i++){
   string b = oldname [i];
 
   printf("%s \n", &a) ;
-  printf("%s \n", &b) ;*/
+  printf("%s \n", &b) ;
 
-}
+}*/
 
 
 
