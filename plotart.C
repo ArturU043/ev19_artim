@@ -17,7 +17,7 @@
 
 
 void plotLepPt(){
-  Tchain plot_550_520("bdttree");
+  TChain plot_550_520("bdttree");
 
   // access bdtt
   plot_550_520.add("/home/t3cms/dbastos/LSTORE/Stop4Body/nTuples16_v2017-10-19_test/T2DegStop_550_520.root");
@@ -55,7 +55,7 @@ void plotLepPt(){
 
   //COMPARE TCanvas
 
-  TCanvas *comp();
+  TCanvas *comp = new TCanvas("comp",8000,8000);
   comp.divide(4,4) ;
 
   pl_lepPt->Draw("");
@@ -73,6 +73,6 @@ void plotLepPt(){
   pl_jet_HB_csv->Draw("same");
 
   //SAVE
-  comp->SaveAS(/home/t3cms/ev19u043/LSTORE/ev19_artim/compare_histograms_550_520.pdf)
+  comp->SaveAS("compare_histograms_550_520.pdf");
 
 }
