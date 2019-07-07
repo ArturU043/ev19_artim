@@ -21,8 +21,8 @@ while (i<12){
   string a = newname[i];
   string b = oldname [i];
 
-  printf("%s", "a") ;
-  printf("%s", "b") ;
+  printf("%s", a) ;
+  printf("%s", b) ;
   i=i+1;
 }
 
