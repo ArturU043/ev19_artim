@@ -38,7 +38,7 @@ void plotart(){
   TH1D* pl_jet_HB_csv = new TH1D("pl_jet_HB_csv", "JetHBCSV", 200,0,200);
 
   //Draw histograms
-  plot_550_520.Draw("LepPT>>pl_lepPt");
+  plot_550_520.Draw("LepPt>>pl_lepPt");
   plot_550_520.Draw("XS>>pl_xs");
   plot_550_520.Draw("Jet1Pt>>pl_jet_pt");
   plot_550_520.Draw("Met>>pl_met");
