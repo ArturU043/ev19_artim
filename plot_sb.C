@@ -37,7 +37,7 @@ void plot_sb(){
   TH1D* pl_Njet = new TH1D("pl_Njet", "Njet", 10,0,10);
   TH1D* pl_jet_HB = new TH1D("pl_jet_HB", "JetHBpt", 700,0,700);
   TH1D* pl_dr = new TH1D("pl_dr", "DrJetHblep", 100,0,4);
-  TH1D* pl_jet_HB_csv = new TH1D("pl_jet_HB_csv", "JetHBCSV", 50,0,1);
+  TH1D* pl_jet_HB_csv = new TH1D("pl_jet_HB_csv", "JetHBCSV", 100,0,1);
 
 
   // plot create Background
@@ -53,7 +53,7 @@ void plot_sb(){
   TH1D* pl_Njet_Background = new TH1D("pl_Njet_Background", "Njet", 10,0,10);
   TH1D* pl_jet_HB_Background = new TH1D("pl_jet_HB_Background", "JetHBpt", 700,0,700);
   TH1D* pl_dr_Background = new TH1D("pl_dr_Background", "DrJetHblep", 100,0,4);
-  TH1D* pl_jet_HB_csv_Background = new TH1D("pl_jet_HB_csv_Background", "JetHBCSV", 50,0,1);
+  TH1D* pl_jet_HB_csv_Background = new TH1D("pl_jet_HB_csv_Background", "JetHBCSV", 100,0,1);
 
 
 
@@ -149,48 +149,48 @@ void plot_sb(){
   pl_lepPt_Background->Draw("same");
 
   c1->cd(2);
-  pl_dr->Draw("");
-  pl_dr_Background->Draw("same");
+  pl_dr_Background->Draw("");
+  pl_dr->Draw("same");
 
   c1->cd(3);
-  pl_ht->Draw("");
-  pl_ht_Background->Draw("same");
+  pl_ht_Background->Draw("");
+  pl_ht->Draw("same");
 
   c1->cd(4);
   pl_xs->Draw("");
   pl_xs_Background->Draw("same");
 
   c1->cd(5);
-  pl_Nb->Draw("");
-  pl_Nb_Background->Draw("same");
+  pl_Nb_Background->Draw("");
+  pl_Nb->Draw("same");
 
   c1->cd(6);
-  pl_mt->Draw("");
-  pl_mt_Background->Draw("same");
+  pl_mt_Background->Draw("");
+  pl_mt->Draw("same");
 
   c1->cd(7);
-  pl_met->Draw("");
-  pl_met_Background->Draw("same");
+  pl_met_Background->Draw("");
+  pl_met->Draw("same");
 
   c1->cd(8);
-  pl_Njet->Draw("");
-  pl_Njet_Background->Draw("same");
+  pl_Njet_Background->Draw("");
+  pl_Njet->Draw("same");
 
   c1->cd(9);
-  pl_jet_pt->Draw("");
-  pl_jet_pt_Background->Draw("same");
+  pl_jet_pt_Background->Draw("");
+  pl_jet_pt->Draw("same");
 
   c1->cd(10);
-  pl_jet_HB->Draw("");
-  pl_jet_HB_Background->Draw("same");
+  pl_jet_HB_Background->Draw("");
+  pl_jet_HB->Draw("same");
 
   c1->cd(11);
-  pl_Lep_Eta->Draw("");
-  pl_Lep_Eta_Background->Draw("same");
+  pl_Lep_Eta_Background->Draw("");
+  pl_Lep_Eta->Draw("same");
 
   c1->cd(12);
-  pl_lep_chg->Draw("");
-  pl_lep_chg_Background->Draw("same");
+  pl_lep_chg_Background->Draw("");
+  pl_lep_chg->Draw("same");
 
   c1->cd(13);
   pl_jet_HB_csv->Draw("");
