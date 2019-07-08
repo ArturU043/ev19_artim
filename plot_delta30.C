@@ -16,11 +16,11 @@
 #include "vector"
 
 
-void plotartim(){
-  TChain plot_550_520("bdttree");
+void plot_delta30(){
+  TChain plot_30("bdttree");
 
   // access bdtt
-  plot_550_520.Add("/home/t3cms/dbastos/LSTORE/Stop4Body/nTuples16_v2017-10-19_test/T2DegStop_550_520.root");
+  plot_550_520.Add("/home/t3cms/dbastos/LSTORE/Stop4Body/nTuples16_v2017-10-19_test/T2DegStop_deltaM30.root");
 
   // plot create
   TH1D* pl_lepPt = new TH1D("pl_lepPt", "lepPT", 200,0,200);
@@ -38,19 +38,19 @@ void plotartim(){
   TH1D* pl_jet_HB_csv = new TH1D("pl_jet_HB_csv", "JetHBCSV", 200,0,200);
 
   //Draw histograms
-  plot_550_520.Draw("LepPt>>pl_lepPt");
-  plot_550_520.Draw("XS>>pl_xs");
-  plot_550_520.Draw("Jet1Pt>>pl_jet_pt");
-  plot_550_520.Draw("Met>>pl_met");
-  plot_550_520.Draw("mt>>pl_mt");
-  plot_550_520.Draw("LepEta>>pl_Lep_Eta");
-  plot_550_520.Draw("LepChg>>pl_lep_chg");
-  plot_550_520.Draw("HT>>pl_ht");
-  plot_550_520.Draw("NbLoose>>pl_Nb");
-  plot_550_520.Draw("Njet>>pl_Njet");
-  plot_550_520.Draw("JetHBpt>>pl_jet_HB");
-  plot_550_520.Draw("DrJetHBLep>>pl_dr");
-  plot_550_520.Draw("JetHBCSV>>pl_jet_HB_csv");
+  plot_30.Draw("LepPt>>pl_lepPt");
+  plot_30.Draw("XS>>pl_xs");
+  plot_30.Draw("Jet1Pt>>pl_jet_pt");
+  plot_30.Draw("Met>>pl_met");
+  plot_30.Draw("mt>>pl_mt");
+  plot_30.Draw("LepEta>>pl_Lep_Eta");
+  plot_30.Draw("LepChg>>pl_lep_chg");
+  plot_30.Draw("HT>>pl_ht");
+  plot_30.Draw("NbLoose>>pl_Nb");
+  plot_30.Draw("Njet>>pl_Njet");
+  plot_30.Draw("JetHBpt>>pl_jet_HB");
+  plot_30.Draw("DrJetHBLep>>pl_dr");
+  plot_30.Draw("JetHBCSV>>pl_jet_HB_csv");
 
 
   //Create and divide TCanvas
@@ -87,6 +87,7 @@ void plotartim(){
   pl_jet_HB_csv->Draw("");
 
   //SAVE
-  c1->SaveAs("compare_histograms_550_520.pdf");
+  c1->SaveAs("compare_histograms_Delta_30.pdf");
+
 
 }
