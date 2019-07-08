@@ -22,7 +22,7 @@ void plot_sb(){
 
   // access bdtt
   plot_30.Add("/home/t3cms/dbastos/LSTORE/Stop4Body/nTuples16_v2017-10-19_test/T2DegStop_deltaM30.root");
-  plot_30_Background.Add("/home/t3cms/dbastos/LSTORE/Stop4Body/nTuples16_v20017/TT_pow.root");
+  plot_30_Background.Add("/home/t3cms/dbastos/LSTORE/Stop4Body/nTuples16_v2017-10-19_test/TT_pow.root");
 
   // plot create signal
   TH1D* pl_lepPt = new TH1D("pl_lepPt", "lepPT", 200,0,200);
