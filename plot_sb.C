@@ -59,34 +59,84 @@ void plot_sb(){
 
   //Draw histograms signal
   plot_30.Draw("LepPt>>pl_lepPt");
+  pl_lepPt->SetLineColor(1);
+
   plot_30.Draw("XS>>pl_xs");
+  pl_xs->SetLineColor(1);
+
   plot_30.Draw("Jet1Pt>>pl_jet_pt");
+  pl_jet_pt->SetLineColor(1);
+
   plot_30.Draw("Met>>pl_met");
+  pl_met->SetLineColor(1);
+
   plot_30.Draw("mt>>pl_mt");
+  pl_mt->SetLineColor(1);
+
   plot_30.Draw("LepEta>>pl_Lep_Eta");
+  pl_Lep_Eta->SetLineColor(1);
+
   plot_30.Draw("LepChg>>pl_lep_chg");
+  pl_lep_chg->SetLineColor(1);
+
   plot_30.Draw("HT>>pl_ht");
+  pl_pl_ht->SetLineColor(1);
+
   plot_30.Draw("NbLoose>>pl_Nb");
+  pl_Nb->SetLineColor(1);
+
   plot_30.Draw("Njet>>pl_Njet");
+  pl_Njet->SetLineColor(1);
+
   plot_30.Draw("JetHBpt>>pl_jet_HB");
+  pl_jet_HB->SetLineColor(1);
+
   plot_30.Draw("DrJetHBLep>>pl_dr");
+  pl_dr->SetLineColor(1);
+
   plot_30.Draw("JetHBCSV>>pl_jet_HB_csv");
+  pl_jet_HB_csv->SetLineColor(1);
 
 
   //Draw histograms background
   plot_30_Background.Draw("LepPt>>pl_lepPt_Background");
+  pl_lepPt_Background->SetLineColor(2);
+
   plot_30_Background.Draw("XS>>pl_xs_Background");
+  pl_xs_Background->SetLineColor(2);
+
   plot_30_Background.Draw("Jet1Pt>>pl_jet_pt_Background");
+  pl_jet_pt_Background->SetLineColor(2);
+
   plot_30_Background.Draw("Met>>pl_met_Background");
+  pl_met_Background->SetLineColor(2);
+
   plot_30_Background.Draw("mt>>pl_mt_Background");
+  pl_mt_Background_Background->SetLineColor(2);
+
   plot_30_Background.Draw("LepEta>>pl_Lep_Eta_Background");
+  pl_Lep_Eta_Background->SetLineColor(2);
+
   plot_30_Background.Draw("LepChg>>pl_lep_chg_Background");
+  pl_lep_chg_Background->SetLineColor(2);
+
   plot_30_Background.Draw("HT>>pl_ht_Background");
+  pl_ht_Background->SetLineColor(2);
+
   plot_30_Background.Draw("NbLoose>>pl_Nb_Background");
+  pl_Nb_Background->SetLineColor(2);
+
   plot_30_Background.Draw("Njet>>pl_Njet_Background");
+  pl_Njet_Background->SetLineColor(2);
+
   plot_30_Background.Draw("JetHBpt>>pl_jet_HB_Background");
+  pl_jet_HB_Background->SetLineColor(2);
+
   plot_30_Background.Draw("DrJetHBLep>>pl_dr_Background");
+  pl_dr_Background->SetLineColor(2);
+
   plot_30_Background.Draw("JetHBCSV>>pl_jet_HB_csv_Background");
+  pl_jet_HB_csv_Background->SetLineColor(2);
 
 
   //Create and divide TCanvas
