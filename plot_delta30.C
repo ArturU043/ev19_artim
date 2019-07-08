@@ -24,18 +24,18 @@ void plot_delta30(){
 
   // plot create
   TH1D* pl_lepPt = new TH1D("pl_lepPt", "lepPT", 200,0,200);
-  TH1D* pl_xs = new TH1D("pl_xs", "XS", 200,-25,25);
+  TH1D* pl_xs = new TH1D("pl_xs", "XS", 200,0,25);
   TH1D* pl_jet_pt = new TH1D("pl_jet_pt", "Jet1PT", 800,0,800);
   TH1D* pl_met = new TH1D("pl_met", "Met", 1500,0,1500);
   TH1D* pl_mt = new TH1D("pl_mt", "mt", 200,0,200);
-  TH1D* pl_Lep_Eta = new TH1D("pl_Lep_Eta", "lepEta", 55,-2.5,2.500);
+  TH1D* pl_Lep_Eta = new TH1D("pl_Lep_Eta", "lepEta", 100,-2.5,2.500);
   TH1D* pl_lep_chg = new TH1D("pl_lep_chg", "lepChg", 4,-1.50,1.50);
   TH1D* pl_ht = new TH1D("pl_ht", "ht", 800,200,1000);
   TH1D* pl_Nb = new TH1D("pl_Nb", "Nbloose", 6,0,6);
   TH1D* pl_Njet = new TH1D("pl_Njet", "Njet", 10,0,10);
   TH1D* pl_jet_HB = new TH1D("pl_jet_HB", "JetHBpt", 700,0,700);
-  TH1D* pl_dr = new TH1D("pl_dr", "DrJetHblep", 40,0,4);
-  TH1D* pl_jet_HB_csv = new TH1D("pl_jet_HB_csv", "JetHBCSV", 25,0,1);
+  TH1D* pl_dr = new TH1D("pl_dr", "DrJetHblep", 100,0,4);
+  TH1D* pl_jet_HB_csv = new TH1D("pl_jet_HB_csv", "JetHBCSV", 50,0,1);
 
   //Draw histograms
   plot_30.Draw("LepPt>>pl_lepPt");
