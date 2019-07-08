@@ -80,7 +80,7 @@ void plot_sb(){
   pl_lep_chg->SetLineColor(1);
 
   plot_30.Draw("HT>>pl_ht");
-  pl_pl_ht->SetLineColor(1);
+  pl_ht->SetLineColor(1);
 
   plot_30.Draw("NbLoose>>pl_Nb");
   pl_Nb->SetLineColor(1);
@@ -112,7 +112,7 @@ void plot_sb(){
   pl_met_Background->SetLineColor(2);
 
   plot_30_Background.Draw("mt>>pl_mt_Background");
-  pl_mt_Background_Background->SetLineColor(2);
+  pl_mt_Background->SetLineColor(2);
 
   plot_30_Background.Draw("LepEta>>pl_Lep_Eta_Background");
   pl_Lep_Eta_Background->SetLineColor(2);
