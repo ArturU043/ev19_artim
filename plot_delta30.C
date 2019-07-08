@@ -20,7 +20,7 @@ void plot_delta30(){
   TChain plot_30("bdttree");
 
   // access bdtt
-  plot_550_520.Add("/home/t3cms/dbastos/LSTORE/Stop4Body/nTuples16_v2017-10-19_test/T2DegStop_deltaM30.root");
+  plot_30.Add("/home/t3cms/dbastos/LSTORE/Stop4Body/nTuples16_v2017-10-19_test/T2DegStop_deltaM30.root");
 
   // plot create
   TH1D* pl_lepPt = new TH1D("pl_lepPt", "lepPT", 200,0,200);
