@@ -16,7 +16,7 @@
 #include "vector"
 
 
-void plotartim(){
+void plot550_520(){
   TChain plot_550_520("bdttree");
 
   // access bdtt
@@ -88,5 +88,6 @@ void plotartim(){
 
   //SAVE
   c1->SaveAs("compare_histograms_550_520.pdf");
+
 
 }
