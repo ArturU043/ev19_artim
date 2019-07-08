@@ -16,7 +16,7 @@
 #include "vector"
 
 
-void plot_delta30(){
+void plot_sb(){
   TChain plot_30("bdttree");
   TChain plot_30_Background("bdttree");
 
@@ -145,7 +145,7 @@ void plot_delta30(){
   c1->cd(13);
   pl_jet_HB_csv->Draw("");
   pl_jet_HB_csv_Background->Draw("same");
-  
+
   //SAVE
   c1->SaveAs("compare_histograms_Delta_30.pdf");
 
