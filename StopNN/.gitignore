@@ -1,0 +1,17 @@
+keras-tf/*
+*.d
+*.so
+*.pcm
+*.root
+*.h5
+*.json
+*.pyc
+*.txt
+*.sav
+.DS_Store
+scaler.sav
+localConfig.py
+mvFiles.sh
+init.sh
+clean.sh
+*.sh.*
