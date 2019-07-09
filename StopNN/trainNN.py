@@ -25,11 +25,11 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process the command line options')
     parser.add_argument('-z', '--batch', action='store_true', help='Whether this is a batch job, if it is, no interactive questions will be asked and answers will be assumed')
     parser.add_argument('-v', '--verbose', action='store_true', help='Whether to print verbose output')
-    parser.add_argument('-l', '--layers', type=int, required=True, help='Number of layers')
-    parser.add_argument('-n', '--neurons', type=int, required=True, help='Number of neurons per layer')
-    parser.add_argument('-e', '--epochs', type=int, required=True, help='Number of epochs')
-    parser.add_argument('-a', '--batchSize', type=int, required=True, help='Batch size')
-    parser.add_argument('-b', '--learningRate', type=float, required=True, help='Learning rate')
+    parser.add_argument('-l', '--layers', type=int, required=False, help='Number of layers')
+    parser.add_argument('-n', '--neurons', type=int, required=False, help='Number of neurons per layer')
+    parser.add_argument('-e', '--epochs', type=int, required=False, help='Number of epochs')
+    parser.add_argument('-a', '--batchSize', type=int, required=False, help='Batch size')
+    parser.add_argument('-b', '--learningRate', type=float, required=False, help='Learning rate')
     parser.add_argument('-c', '--decay', type=float, default=0, help='Learning rate decay')
     parser.add_argument('-d', '--dropoutRate', type=float, default=0, help='Drop-out rate')
     parser.add_argument('-r', '--regularizer', type=float, default=0, help='Regularizer')
@@ -53,7 +53,7 @@ if __name__ == "__main__":
 
     ## Model compile arguments, training parameters and optimizer.
     compileArgs = {'loss': 'binary_crossentropy', 'optimizer': 'adam', 'metrics': ["accuracy"]}
-    trainParams = {'epochs': n_epochs, 'batch_size': batch_size, 'verbose': verbose}
+    trainParams = {'epochs': 100, 'batch_size': 3000, 'verbose': verbose}
     myOpt = Adam(lr=learning_rate)#, decay=my_decay)
     compileArgs['optimizer'] = myOpt
 
@@ -75,10 +75,13 @@ if __name__ == "__main__":
         start = time.time()
 
     ## EXERCISE 2: Create your NN model
-    model = # Please, inset your code here........
+        # Please, inset your code here.......
+    model=Sequential()
+    model.add(Dense(14, input_dim=12, activation='relu'))
+    model.add(Dense(1, activation='sigmoid'))
+    #compile
+    model.compile(**compileArgs)
 
-
-    ##push test
 
 
     ##Fit your model
