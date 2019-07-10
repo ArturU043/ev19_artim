@@ -4,9 +4,11 @@ Train the Neural Network
 
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
-from keras.optimizers import Adam, Nadam
-import time
 import keras
+from keras.optimizers import Adam, Nadam
+from Keras import *
+import time
+
 import pandas
 #from keras.models import Sequential
 #from keras.layers import Dense, Dropout, AlphaDropout
@@ -58,15 +60,15 @@ if __name__ == "__main__":
     compileArgs['optimizer'] = myOpt
 
     #name = "L"+str(n_layers)+"_N"+str(n_neurons)+"_E"+str(n_epochs)+"_Bs"+str(batch_size)+"_Lr"+str(learning_rate)+"_De"+str(my_decay)+"_Dr"+str(dropout_rate)+"_L2Reg"+str(regularizer)+"_Tr"+train_DM+"_Te"+test_point+"_DT"+suffix
-    name = "exercise"
+    str(name) = "exercise"
     if iteration > 0:
-        name = name+"_Ver_"+str(iteration)
+        str(name) = str(name)+"_Ver_"+str(iteration)
 
     ## Directory to save your NN files. Edit lgbk variable in localConfig.py DONE
-    filepath ="/home/t3cms/ev19u045/LSTORE/ev19_artim/lgbk/"#+"SingleNN/"+name+"/"
+    filepath ="/home/t3cms/ev19u045/LSTORE/ev19_artim/lgbk/SingleNN/"+str(name)+"/"
 
-    #if os.path.exists(filepath) == False:
-    os.mkdir(filepath)
+    if os.path.exists(filepath) == False:
+        os.mkdir(filepath)
 
     os.chdir(filepath)
 
