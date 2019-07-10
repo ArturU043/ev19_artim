@@ -65,10 +65,12 @@ if __name__ == "__main__":
         name=str(name)+"_Ver_"+str(iteration)
 
     ## Directory to save your NN files. Edit lgbk variable in localConfig.py DONE
-    filepath =str("/home/t3cms/ev19u045/LSTORE/ev19_artim/lgbk/SingleNN/{}/".format(name))
+    filepath =str("/home/t3cms/ev19u045/LSTORE/ev19_artim/StopNN/test/")
+    os.chdir(filepath)
 
-    if os.path.exists((filepath)) == False:
-        os.mkdir(filepath))
+
+    if os.path.exists(name) == False:
+        os.mkdir(name)
 
     os.chdir(filepath)
 
