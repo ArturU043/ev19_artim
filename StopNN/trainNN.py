@@ -63,7 +63,7 @@ if __name__ == "__main__":
         name = name+"_Ver"+str(iteration)
 
     ## Directory to save your NN files. Edit lgbk variable in localConfig.py DONE
-    filepath = cfg.lgbk+"SingleNN/"+name
+    filepath ="/home/t3cms/ev19u045/LSTORE/ev19_artim/lgbk"+"SingleNN/"+name
 
     if os.path.exists(filepath) == False:
         os.mkdir(filepath)
