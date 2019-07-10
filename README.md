@@ -10,5 +10,8 @@
                              et leurs notes de cours : http://cs231n.github.io/
                              et le GitHub: https://github.com/cs231n/cs231n.github.io
                              
+    Questions
+    *if __name = "__main__"
+    *cuts
                              
       
