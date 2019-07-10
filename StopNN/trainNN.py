@@ -6,7 +6,7 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 import keras
 from keras.optimizers import Adam, Nadam
-from Keras import *
+from keras import *
 import time
 
 import pandas
@@ -62,13 +62,13 @@ if __name__ == "__main__":
     #name = "L"+str(n_layers)+"_N"+str(n_neurons)+"_E"+str(n_epochs)+"_Bs"+str(batch_size)+"_Lr"+str(learning_rate)+"_De"+str(my_decay)+"_Dr"+str(dropout_rate)+"_L2Reg"+str(regularizer)+"_Tr"+train_DM+"_Te"+test_point+"_DT"+suffix
     name = str("exercise")
     if iteration > 0:
-        name = str(name)+"_Ver_"+str(iteration)
+        name=str(name)+"_Ver_"+str(iteration)
 
     ## Directory to save your NN files. Edit lgbk variable in localConfig.py DONE
-    filepath ="/home/t3cms/ev19u045/LSTORE/ev19_artim/lgbk/SingleNN/"+str(name)+"/"
+    filepath =str("/home/t3cms/ev19u045/LSTORE/ev19_artim/lgbk/SingleNN/{}/".format(name))
 
-    if os.path.exists(filepath) == False:
-        os.mkdir(filepath)
+    if os.path.exists((filepath)) == False:
+        os.mkdir(filepath))
 
     os.chdir(filepath)
 
