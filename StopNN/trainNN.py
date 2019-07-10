@@ -74,7 +74,7 @@ if __name__ == "__main__":
         print("Starting the training")
         start = time.time()
 
-    ## EXERCISE 2: Create your NN model
+    ## EXERCISE 2: Create your NN model []
         # Please, inset your code here.......
     model=Sequential()
     model.add(Dense(14, input_dim=12, activation='relu'))
