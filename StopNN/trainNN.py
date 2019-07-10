@@ -29,7 +29,7 @@ if __name__ == "__main__":
     parser.add_argument('-n', '--neurons', type=int, required=False, help='Number of neurons per layer')
     parser.add_argument('-e', '--epochs', type=int, required=False, help='Number of epochs')
     parser.add_argument('-a', '--batchSize', type=int, required=False, help='Batch size')
-    parser.add_argument('-b', '--learningRate', type=float, required=False, help='Learning rate')
+    parser.add_argument('-b', '--learningRate', type=float, required=True, help='Learning rate')
     parser.add_argument('-c', '--decay', type=float, default=0, help='Learning rate decay')
     parser.add_argument('-d', '--dropoutRate', type=float, default=0, help='Drop-out rate')
     parser.add_argument('-r', '--regularizer', type=float, default=0, help='Regularizer')
@@ -57,16 +57,17 @@ if __name__ == "__main__":
     myOpt = Adam(lr=learning_rate)#, decay=my_decay)
     compileArgs['optimizer'] = myOpt
 
-    name = "L"+str(n_layers)+"_N"+str(n_neurons)+"_E"+str(n_epochs)+"_Bs"+str(batch_size)+"_Lr"+str(learning_rate)+"_De"+str(my_decay)+"_Dr"+str(dropout_rate)+"_L2Reg"+str(regularizer)+"_Tr"+train_DM+"_Te"+test_point+"_DT"+suffix
-
+    #name = "L"+str(n_layers)+"_N"+str(n_neurons)+"_E"+str(n_epochs)+"_Bs"+str(batch_size)+"_Lr"+str(learning_rate)+"_De"+str(my_decay)+"_Dr"+str(dropout_rate)+"_L2Reg"+str(regularizer)+"_Tr"+train_DM+"_Te"+test_point+"_DT"+suffix
+    name = "exercise_2"
     if iteration > 0:
         name = name+"_Ver"+str(iteration)
 
     ## Directory to save your NN files. Edit lgbk variable in localConfig.py DONE
-    filepath ="/home/t3cms/ev19u045/LSTORE/ev19_artim/lgbk"+"SingleNN/"+name
+    filepath ="/home/t3cms/ev19u045/LSTORE/ev19_artim/lgbk/"+"SingleNN/"+name
 
     if os.path.exists(filepath) == False:
         os.mkdir(filepath)
+
     os.chdir(filepath)
 
     if args.verbose:
