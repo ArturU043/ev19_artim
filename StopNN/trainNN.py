@@ -62,7 +62,7 @@ if __name__ == "__main__":
     if iteration > 0:
         name = name+"_Ver"+str(iteration)
 
-    ## Directory to save your NN files. Edit lgbk variable in localConfig.py
+    ## Directory to save your NN files. Edit lgbk variable in localConfig.py DONE
     filepath = cfg.lgbk+"SingleNN/"+name
 
     if os.path.exists(filepath) == False:
