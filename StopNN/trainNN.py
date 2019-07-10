@@ -7,6 +7,8 @@ os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 import keras
 from keras.optimizers import Adam, Nadam
 from keras import *
+from keras.layers import Dense
+import numpy
 import time
 
 import pandas
@@ -67,7 +69,6 @@ if __name__ == "__main__":
     ## Directory to save your NN files. Edit lgbk variable in localConfig.py DONE
     filepath ="/home/t3cms/ev19u045/LSTORE/ev19_artim/StopNN/test/{}/".format(name)
 
-    #if os.path.exists(name) == False:
     os.mkdir(filepath)
 
 
