@@ -68,8 +68,8 @@ if __name__ == "__main__":
 
     ## Directory to save your NN files. Edit lgbk variable in localConfig.py DONE
     filepath ="/home/t3cms/ev19u045/LSTORE/ev19_artim/StopNN/test/{}/".format(name)
-
-    os.mkdir(filepath)
+    if not os.path.exists(filepath):
+        os.mkdir(filepath)
 
 
     if args.verbose:
