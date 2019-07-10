@@ -91,8 +91,8 @@ def StopDataLoader(path, features, test="550_520", selection="", treename="bdttr
   sigVal = None
 
 
-  testPath = "nTuples_v2017-10-19_test"+suffix+"/"
-  trainPath = "nTuples_v2017-10-19_train"+suffix+"/"
+  testPath = "nTuples16_v2017-10-19_test"+suffix+"/"
+  trainPath = "nTuples16_v2017-10-19_train"+suffix+"/"
 
   #testPath = "test/"
   #trainPath = "train/"
