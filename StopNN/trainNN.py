@@ -102,9 +102,9 @@ if __name__ == "__main__":
     assure_path_exists(filepath+"/accuracy/"+"val_acc_"+name+".pickle")
 
     ## Save accuracy and loss values in a pickle file for later plotting
-    pickle.dump(acc, open("accuracy/acc_"+name+".pickle", "wb"))
-    pickle.dump(loss, open("loss/loss_"+name+".pickle", "wb"))
-    pickle.dump(val_acc, open("accuracy/val_acc_"+name+".pickle", "wb"))
+    pickle.dump(acc, open(filepath+"accuracy/acc_"+name+".pickle", "wb"))
+    pickle.dump(loss, open(filepath+"loss/loss_"+name+".pickle", "wb"))
+    pickle.dump(val_acc, open(filepath+"accuracy/val_acc_"+name+".pickle", "wb"))
     pickle.dump(val_loss, open("loss/val_loss_"+name+".pickle", "wb"))
 
     if args.verbose:
