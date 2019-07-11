@@ -31,8 +31,8 @@ if __name__ == "__main__":
     parser.add_argument('-v', '--verbose', action='store_true', help='Whether to print verbose output')
     parser.add_argument('-l', '--layers', type=int, required=False, help='Number of layers')
     parser.add_argument('-n', '--neurons', type=int, required=False, help='Number of neurons per layer')
-    parser.add_argument('-e', '--epochs', type=int, required=False, help='Number of epochs')
-    parser.add_argument('-a', '--batchSize', type=int, required=False, help='Batch size')
+    parser.add_argument('-e', '--epochs', type=int, required=True, help='Number of epochs')
+    parser.add_argument('-a', '--batchSize', type=int, required=True, help='Batch size')
     parser.add_argument('-b', '--learningRate', type=float, required=True, help='Learning rate')
     parser.add_argument('-c', '--decay', type=float, default=0, help='Learning rate decay')
     parser.add_argument('-d', '--dropoutRate', type=float, default=0, help='Drop-out rate')
@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
     ## Model compile arguments, training parameters and optimizer.
     compileArgs = {'loss': 'binary_crossentropy', 'optimizer': 'adam', 'metrics': ["accuracy"]}
-    trainParams = {'epochs': 100, 'batch_size': 3000, 'verbose': verbose}
+    trainParams = {'epochs': n_epochs, 'batch_size': batch_size, 'verbose': verbose}
     myOpt = Adam(lr=learning_rate)#, decay=my_decay)
     compileArgs['optimizer'] = myOpt
 

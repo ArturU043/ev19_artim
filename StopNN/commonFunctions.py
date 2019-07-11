@@ -289,7 +289,7 @@ def myClassifier(nIn, nOut, compileArgs, dropout_rate=0.0, learn_rate=0.001):
 def assure_path_exists(path):
 
     if not os.path.exists(path):
-        os.makedir(path)
+        os.mkdir(path)
 
 # Selected range
 
