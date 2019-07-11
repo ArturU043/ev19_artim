@@ -95,8 +95,11 @@ if __name__ == "__main__":
     loss = history.history['loss']
     val_loss = history.history['val_loss']
 
-    assure_path_exists(filepath+"/accuracy/"+"dummy.txt")
-    assure_path_exists(filepath+"/loss/"+"dummy.txt")
+    assure_path_exists(filepath+"/accuracy/"+"acc_"+name+".pickle")
+    assure_path_exists(filepath+"/loss/"+"loss_"+name+".pickle")
+
+    assure_path_exists(filepath+"/loss/"+"val_loss_"+name+".pickle")
+    assure_path_exists(filepath+"/accuracy/"+"val_acc_"+name+".pickle")
 
     ## Save accuracy and loss values in a pickle file for later plotting
     pickle.dump(acc, open("accuracy/acc_"+name+".pickle", "wb"))

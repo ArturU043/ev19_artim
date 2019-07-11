@@ -287,9 +287,9 @@ def myClassifier(nIn, nOut, compileArgs, dropout_rate=0.0, learn_rate=0.001):
     return model
 
 def assure_path_exists(path):
-    dir = os.path.dirname(path)
-    if not os.path.exists(dir):
-        os.makedirs(dir)
+
+    if not os.path.exists(path):
+        os.makedir(path)
 
 # Selected range
 
