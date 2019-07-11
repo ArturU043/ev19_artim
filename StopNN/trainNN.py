@@ -166,7 +166,7 @@ if __name__ == "__main__":
 
     ## Plot accuracy and loss evolution over epochs for both training and validation datasets
     if not args.batch:
-        from Plotter import *
+        from commonFunctions import plotter
 
         ## Plot accuracy for training and validation datasets of epochs
         # Accuracy
