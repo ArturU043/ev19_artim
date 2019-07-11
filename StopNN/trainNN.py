@@ -170,7 +170,7 @@ if __name__ == "__main__":
         import matplotlib.pyplot as plt
 
         ## Plot accuracy for training and validation datasets of epochs
-        # Please, inset your code here........
+        
 
         ## Plot loss for training and validation datasets of epochs
         # Please, inset your code here........
