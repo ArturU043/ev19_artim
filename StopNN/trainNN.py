@@ -95,27 +95,24 @@ if __name__ == "__main__":
     loss = history.history['loss']
     val_loss = history.history['val_loss']
 
-    assure_path_exists(filepath+"accuracy/"+"acc_"+name+".pickle")
-    assure_path_exists(filepath+"loss/"+"loss_"+name+".pickle")
-
-    assure_path_exists(filepath+"loss/"+"val_loss_"+name+".pickle")
-    assure_path_exists(filepath+"accuracy/"+"val_acc_"+name+".pickle")
+    assure_path_exists(filepath+"accuracy/")
+    assure_path_exists(filepath+"loss/")
 
     ## Save accuracy and loss values in a pickle file for later plotting
     pickle.dump(acc, open(filepath+"accuracy/acc_"+name+".pickle", "wb"))
     pickle.dump(loss, open(filepath+"loss/loss_"+name+".pickle", "wb"))
     pickle.dump(val_acc, open(filepath+"accuracy/val_acc_"+name+".pickle", "wb"))
-    pickle.dump(val_loss, open("loss/val_loss_"+name+".pickle", "wb"))
+    pickle.dump(val_loss, open(filepath+"loss/val_loss_"+name+".pickle", "wb"))
 
     if args.verbose:
         print("Training took ", time.time()-start, " seconds")
 
-    ## Save your trainned model
+    ## Save your trainned model and weights
     model.save(filepath+name+".h5")
     model_json = model.to_json()
-    with open(name + ".json", "w") as json_file:
+    with open(filepath+name + ".json", "w") as json_file:
       json_file.write(model_json)
-    model.save_weights(name + ".h5")
+    model.save_weights(filepath+name + ".h5")
 
     if args.verbose:
         print("Getting predictions")
