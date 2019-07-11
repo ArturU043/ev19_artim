@@ -62,7 +62,7 @@ if __name__ == "__main__":
     compileArgs['optimizer'] = myOpt
 
     #name = "L"+str(n_layers)+"_N"+str(n_neurons)+"_E"+str(n_epochs)+"_Bs"+str(batch_size)+"_Lr"+str(learning_rate)+"_De"+str(my_decay)+"_Dr"+str(dropout_rate)+"_L2Reg"+str(regularizer)+"_Tr"+train_DM+"_Te"+test_point+"_DT"+suffix
-    name = str("exercise")
+    name = str("Model")
     if iteration > 0:
         name=str(name)+"_Ver_"+str(iteration)
 
@@ -166,17 +166,22 @@ if __name__ == "__main__":
 
     ## Plot accuracy and loss evolution over epochs for both training and validation datasets
     if not args.batch:
-        import sys
-        import matplotlib.pyplot as plt
+        from Plotter import *
 
         ## Plot accuracy for training and validation datasets of epochs
-        
+        # Accuracy
 
-        ## Plot loss for training and validation datasets of epochs
-        # Please, inset your code here........
+        plotter(filepath+"accuracy/acc_"+name+".pickle","accuracy",name+"'s Accuracy")
+        plt.savefig(filepath+"accuracy/Accuracy.pdf")
+        plotter(filepath+"accuracy/val_acc_"+name+".pickle","Val accuracy",name+"'s Accuracy's validation")
+        plt.savefig(filepath+"accuracy/Accuracy_Validation.pdf")
 
-        ## Save your plots
-        # Please, inset your code here........
+        #Loss Function
+
+        plotter(filepath+"loss/loss_"+name+".pickle","loss",name+"'s Loss function // "+compileArgs['loss'])
+        plt.savefig(filepath+"loss/Loss_"+compileArgs['loss']+".pdf")
+        plotter(filepath+"loss/val_loss_"+name+".pickle","loss Validation",name+"'s Loss function Validation // "+compileArgs['loss'])
+
 
         if args.verbose:
             print "Model name: "+name
