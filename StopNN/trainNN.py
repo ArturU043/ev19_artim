@@ -170,26 +170,20 @@ if __name__ == "__main__":
 
         ## Plot accuracy for training and validation datasets of epochs
         # Accuracy
-        fig_1=plt.figure()
+        fig=plt.figure()
 
+        plt.subplot(2,1,1)
         plotter(filepath+"accuracy/acc_"+name+".pickle","accuracy",name+"'s Accuracy")
-
-        plt.savefig(filepath+"accuracy/Accuracy.pdf")
-
         plotter(filepath+"accuracy/val_acc_"+name+".pickle","Val accuracy",name+"'s Accuracy's validation")
+        #plt.savefig(filepath+"accuracy/Accuracy.pdf")
 
-        plt.savefig(filepath+"accuracy/Accuracy_Validation.pdf")
-        plt.close()
 
         #Loss Function
-        fig_2=plt.figure()
+        plt.subplot(2,1,2)
         plotter(filepath+"loss/loss_"+name+".pickle","loss",name+"'s Loss function // "+compileArgs['loss'])
-
-        plt.savefig(filepath+"loss/Loss_"+compileArgs['loss']+".pdf")
-
         plotter(filepath+"loss/val_loss_"+name+".pickle","loss Validation",name+"'s Loss function Validation // "+compileArgs['loss'])
-
-        plt.savefig(filepath+"loss/Loss_Validation_"+compileArgs['loss']+".pdf")
+        #plt.savefig(filepath+"loss/Loss_Validation_"+compileArgs['loss']+".pdf")
+        plt.savefig(filepath)
         plt.close()
 
 
