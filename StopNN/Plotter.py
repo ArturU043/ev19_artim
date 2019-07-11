@@ -5,6 +5,7 @@ import pickle
 
 
 def plotter(path,Ylabel,Title):
+    fig_Ylabel=plt.figure()
     open_= open(path,'rb')
     plot_= pickle.load(open_)
     plt.plot(plot_)
