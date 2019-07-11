@@ -112,7 +112,7 @@ if __name__ == "__main__":
     model_json = model.to_json()
     with open(filepath+name + ".json", "w") as json_file:
       json_file.write(model_json)
-    model.save_weights(filepath+name + ".h5")
+    model.save_weights(filepath+name  + "_w.h5")
 
     if args.verbose:
         print("Getting predictions")
@@ -175,12 +175,15 @@ if __name__ == "__main__":
         plt.savefig(filepath+"accuracy/Accuracy.pdf")
         plotter(filepath+"accuracy/val_acc_"+name+".pickle","Val accuracy",name+"'s Accuracy's validation")
         plt.savefig(filepath+"accuracy/Accuracy_Validation.pdf")
+        plt.close()
 
         #Loss Function
 
         plotter(filepath+"loss/loss_"+name+".pickle","loss",name+"'s Loss function // "+compileArgs['loss'])
         plt.savefig(filepath+"loss/Loss_"+compileArgs['loss']+".pdf")
         plotter(filepath+"loss/val_loss_"+name+".pickle","loss Validation",name+"'s Loss function Validation // "+compileArgs['loss'])
+        plt.savefig(filepath+"loss/Loss_Validation_"+compileArgs['loss']+".pdf")
+        plt.close()
 
 
         if args.verbose:
