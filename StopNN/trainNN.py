@@ -181,6 +181,7 @@ if __name__ == "__main__":
         plotter(filepath+"loss/loss_"+name+".pickle","loss",name+"'s Loss function // "+compileArgs['loss'])
         plt.savefig(filepath+"loss/Loss_"+compileArgs['loss']+".pdf")
         plotter(filepath+"loss/val_loss_"+name+".pickle","loss Validation",name+"'s Loss function Validation // "+compileArgs['loss'])
+        plt.savefig(filepath+"loss/Loss_Validation_"+compileArgs['loss']+".pdf")
 
 
         if args.verbose:
