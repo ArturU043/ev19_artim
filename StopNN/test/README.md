@@ -1,4 +1,6 @@
 ## **List of Models and details**
+
+**Model 1 ** : Just tests / no relevant 
                                 
                                                  
 **Model 2 : exercise Step 1** ,   Neuros / Layers : 12 ;14 ;1 
