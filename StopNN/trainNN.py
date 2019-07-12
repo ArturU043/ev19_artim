@@ -176,17 +176,17 @@ if __name__ == "__main__":
 
     # Plot accuracy and loss evolution over epochs for both training and validation datasets
     if not args.batch:
+        from commonFunctions import plotter
         fig=plt.figure()
-
-        # Accuracy
         plt.subplot(2,1,1)
-        plotter(filepath+"accuracy/acc_"+name+".pickle","accuracy","acc")
+        plotter(filepath+"accuracy/acc_"+name+".pickle","accuracy",name+"'s accuracy")
         plotter(filepath+"accuracy/val_acc_"+name+".pickle","Val accuracy",name+"'s Accuracy's validation")
+        #plt.savefig(filepath+"accuracy/Accuracy.pdf")
 
-        # Loss Function
         plt.subplot(2,1,2)
-        plotter(filepath+"loss/loss_"+name+".pickle","loss","loss")
+        plotter(filepath+"loss/loss_"+name+".pickle","loss",name +"loss function")
         plotter(filepath+"loss/val_loss_"+name+".pickle","loss Validation",name+"'s Loss Validation ")
+        #plt.savefig(filepath + "loss/Loss_Validation.pdf")
 
         plt.savefig(filepath+name+"Accuracy_Loss_"+compileArgs['loss']+".pdf")
         plt.close()
