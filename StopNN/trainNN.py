@@ -12,7 +12,7 @@ import time
 import pandas
 from sklearn.metrics import confusion_matrix, cohen_kappa_score
 from commonFunctions import getYields, FullFOM, myClassifier, gridClassifier, getDefinedClassifier, assure_path_exists, plotter
-import matplotlib as plt
+import matplotlib.pyplot as plt
 #from scipy.stats import ks_2samp
 import localConfig as cfg
 import pickle
@@ -35,18 +35,21 @@ if __name__ == "__main__":
     parser.add_argument('-d', '--dropoutRate', type=float, default=0, help='Drop-out rate')
     parser.add_argument('-r', '--regularizer', type=float, default=0, help='Regularizer')
     parser.add_argument('-i', '--iteration', type=int, default=1, help='Iteration number i')
+    parser.add_argument('-h', '--NHidden', type=int, required=True, help= 'Number of hidden layers')
 
     args = parser.parse_args()
 
     n_layers = args.layers
     n_neurons = args.neurons
     n_epochs = args.epochs
+    n_hidden = args.NHidden
     batch_size = args.batchSize
     learning_rate = args.learningRate
     my_decay = args.decay
     dropout_rate = args.dropoutRate
     regularizer = args.regularizer
     iteration = args.iteration
+
 
     verbose = 0
     if args.verbose:
@@ -75,11 +78,13 @@ if __name__ == "__main__":
         start = time.time()
 
     # Model's architecture
+
+
     model=Sequential()
     model.add(Dense(14, input_dim=12, activation='relu'))
     model.add(Dense(7, activation='relu'))
     model.add(Dense(1, activation='sigmoid'))
-    #compile
+    # Compile
     model.compile(**compileArgs)
 
     # Creating a text file where all of the model's caracteristics are displayed
@@ -172,7 +177,7 @@ if __name__ == "__main__":
 
     # Plot accuracy and loss evolution over epochs for both training and validation datasets
     if not args.batch:
-
+        import matplotlib as plt
         fig=plt.figure()
 
         # Accuracy
