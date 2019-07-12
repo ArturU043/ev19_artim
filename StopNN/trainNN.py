@@ -11,7 +11,7 @@ import numpy
 import time
 import pandas
 from sklearn.metrics import confusion_matrix, cohen_kappa_score
-from commonFunctions import getYields, FullFOM, myClassifier, gridClassifier, getDefinedClassifier, assure_path_exists, plotter
+from commonFunctions import getYields, FullFOM, myClassifier, gridClassifier, getDefinedClassifier, assure_path_exists, plotter, NNarch
 import matplotlib.pyplot as plt
 #from scipy.stats import ks_2samp
 import localConfig as cfg
@@ -24,10 +24,10 @@ if __name__ == "__main__":
 
     # Input arguments
     parser = argparse.ArgumentParser(description='Process the command line options')
-    parser.add_argument('-z', '--batch', action='store_true', help='Whether this is a batch job, if it is, no interactive questions will be asked and answers will be assumed')
-    parser.add_argument('-v', '--verbose', action='store_true', help='Whether to print verbose output')
     #parser.add_argument('-L', '--layers', type=int, required=False, help='Number of layers')
     #parser.add_argument('-n', '--neurons', type=int, required=False, help='Number of neurons per layer')
+    parser.add_argument('-z', '--batch', action='store_true', help='Whether this is a batch job, if it is, no interactive questions will be asked and answers will be assumed')
+    parser.add_argument('-v', '--verbose', action='store_true', help='Whether to print verbose output')
     parser.add_argument('-e', '--epochs', type=int, required=True, help='Number of epochs')
     parser.add_argument('-a', '--batchSize', type=int, required=True, help='Batch size')
     parser.add_argument('-b', '--learningRate', type=float, required=True, help='Learning rate')
@@ -35,20 +35,23 @@ if __name__ == "__main__":
     parser.add_argument('-d', '--dropoutRate', type=float, default=0, help='Drop-out rate')
     parser.add_argument('-r', '--regularizer', type=float, default=0, help='Regularizer')
     parser.add_argument('-i', '--iteration', type=int, default=1, help='Iteration number i')
-    parser.add_argument('-l', '--arch', type=list, nargs ='+', required=True, help= 'Number of neurons in each hidden layer')
+    parser.add_argument('-l', '--list', type=str, required=True, help='Defines the architecture of the NN; e.g: -l "14 12 7"  ->3 hidden layers of 14, 12 and 7 neurons respectively (input always 12, output always 1)')
+    #parser.add_argument('-act', '--act', type=str, required= True, help='activation functio for the hidden neurons')
 
     args = parser.parse_args()
 
-    n_layers = args.layers
-    n_neurons = args.neurons
+    #n_layers = args.layers
+    #n_neurons = args.neurons
+    #act = args.act
     n_epochs = args.epochs
-    architecture = args.arch  # Defines the architecture of the NN; e.g: -l 14 12 7  ->3 hidden layers of 14, 12 and 7 neurons respectively (input always 12, output always 1)
     batch_size = args.batchSize
     learning_rate = args.learningRate
     my_decay = args.decay
     dropout_rate = args.dropoutRate
     regularizer = args.regularizer
     iteration = args.iteration
+    list=args.list
+    architecture=list.split()
 
 
     verbose = 0
@@ -67,6 +70,7 @@ if __name__ == "__main__":
         name=str(name)+"_Ver_"+str(iteration)
 
     # Creating the directory where the fileswill be stored
+    testpath ="/home/t3cms/ev19u043/LSTORE/ev19_artim/StopNN/test/"
     filepath ="/home/t3cms/ev19u043/LSTORE/ev19_artim/StopNN/test/{}/".format(name)
     if not os.path.exists(filepath):
         os.mkdir(filepath)
@@ -78,20 +82,14 @@ if __name__ == "__main__":
         start = time.time()
 
     # Model's architecture
-
-
-    model=Sequential()
-    model.add(Dense(14, input_dim=12, activation='relu'))
-    model.add(Dense(7, activation='relu'))
-    model.add(Dense(1, activation='sigmoid'))
+    NNarch('relu', *architecture)
     # Compile
     model.compile(**compileArgs)
 
     # Creating a text file where all of the model's caracteristics are displayed
-
-
-
-
+    f=open(testpath + "README.md", "a")
+    f.write("\n **{}** :Neuron/Layers (12 {} 1) ; Activation: ReLu ; Output: Sigmoïd ; Batch size:{} ; Epochs: {} ; Step size: {} ; Optimizer: Adam ; Regulizer: {}".format(name, list, batch_size, n_epochs, learning_rate, regularizer ))
+    f.close()
 
     #Fitting the Model
     history = model.fit(XDev, YDev, validation_data=(XVal,YVal,weightVal), sample_weight=weightDev,shuffle=True, **trainParams)
@@ -177,7 +175,6 @@ if __name__ == "__main__":
 
     # Plot accuracy and loss evolution over epochs for both training and validation datasets
     if not args.batch:
-        import matplotlib as plt
         fig=plt.figure()
 
         # Accuracy
