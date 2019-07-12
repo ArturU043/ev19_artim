@@ -6,6 +6,9 @@
     ROOT:                                                   
     * Explication complete histogrammes root : https://root.cern.ch/root/htmldoc/guides/users-guide/Histograms.html
       
+    Wiki LIP:
+    * https://wiki-lip.lip.pt/Computing/LIP_Lisbon_Farm
+    
     NN:
     * Site de Giles Strong NN: https://amva4newphysics.wordpress.com/tag/neural-networks/
     * Un livre sur le Machine Learning: http://www.deeplearningbook.org/
@@ -16,7 +19,6 @@
           with mathplotlib: https://matplotlib.org/3.1.1/tutorials/index.html#introductory
                              
     Questions
-    *if __name = "__main__"
-    *cuts
+    
                              
       
