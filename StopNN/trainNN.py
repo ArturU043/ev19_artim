@@ -82,6 +82,7 @@ if __name__ == "__main__":
         start = time.time()
 
     # Model's architecture
+    model=Sequential()
     NNarch('relu', *architecture)
     # Compile
     model.compile(**compileArgs)
