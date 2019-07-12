@@ -26,8 +26,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process the command line options')
     parser.add_argument('-z', '--batch', action='store_true', help='Whether this is a batch job, if it is, no interactive questions will be asked and answers will be assumed')
     parser.add_argument('-v', '--verbose', action='store_true', help='Whether to print verbose output')
-    parser.add_argument('-l', '--layers', type=int, required=False, help='Number of layers')
-    parser.add_argument('-n', '--neurons', type=int, required=False, help='Number of neurons per layer')
+    #parser.add_argument('-L', '--layers', type=int, required=False, help='Number of layers')
+    #parser.add_argument('-n', '--neurons', type=int, required=False, help='Number of neurons per layer')
     parser.add_argument('-e', '--epochs', type=int, required=True, help='Number of epochs')
     parser.add_argument('-a', '--batchSize', type=int, required=True, help='Batch size')
     parser.add_argument('-b', '--learningRate', type=float, required=True, help='Learning rate')
@@ -35,14 +35,14 @@ if __name__ == "__main__":
     parser.add_argument('-d', '--dropoutRate', type=float, default=0, help='Drop-out rate')
     parser.add_argument('-r', '--regularizer', type=float, default=0, help='Regularizer')
     parser.add_argument('-i', '--iteration', type=int, default=1, help='Iteration number i')
-    parser.add_argument('-h', '--NHidden', type=int, required=True, help= 'Number of hidden layers')
+    parser.add_argument('-l', '--arch', type=list, nargs ='+', required=True, help= 'Number of neurons in each hidden layer')
 
     args = parser.parse_args()
 
     n_layers = args.layers
     n_neurons = args.neurons
     n_epochs = args.epochs
-    n_hidden = args.NHidden
+    architecture = args.arch  # Defines the architecture of the NN; e.g: -l 14 12 7  ->3 hidden layers of 14, 12 and 7 neurons respectively (input always 12, output always 1)
     batch_size = args.batchSize
     learning_rate = args.learningRate
     my_decay = args.decay
