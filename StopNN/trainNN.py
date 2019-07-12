@@ -1,21 +1,18 @@
-'''
-Train the Neural Network
-'''
-
+# Importing everything
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 import keras
-from keras.optimizers import Adam, Nadam
 from keras import *
+from keras.optimizers import Adam, Nadam
+from keras.models import Sequential
+from keras.layers import Dense, Dropout, AlphaDropout
 from keras.layers import Dense
 import numpy
 import time
-
 import pandas
-#from keras.models import Sequential
-#from keras.layers import Dense, Dropout, AlphaDropout
 from sklearn.metrics import confusion_matrix, cohen_kappa_score
-from commonFunctions import getYields, FullFOM, myClassifier, gridClassifier, getDefinedClassifier, assure_path_exists
+from commonFunctions import getYields, FullFOM, myClassifier, gridClassifier, getDefinedClassifier, assure_path_exists, plotter
+import matplotlib as plt
 #from scipy.stats import ks_2samp
 import localConfig as cfg
 import pickle
@@ -25,7 +22,7 @@ if __name__ == "__main__":
     import argparse
     import sys
 
-    ## Input arguments. Pay speciall attention to the required ones.
+    # Input arguments
     parser = argparse.ArgumentParser(description='Process the command line options')
     parser.add_argument('-z', '--batch', action='store_true', help='Whether this is a batch job, if it is, no interactive questions will be asked and answers will be assumed')
     parser.add_argument('-v', '--verbose', action='store_true', help='Whether to print verbose output')
@@ -55,39 +52,43 @@ if __name__ == "__main__":
     if args.verbose:
         verbose = 1
 
-    ## Model compile arguments, training parameters and optimizer.
+    # Model's compile arguments, training parameters and optimizer.
     compileArgs = {'loss': 'binary_crossentropy', 'optimizer': 'adam', 'metrics': ["accuracy"]}
     trainParams = {'epochs': n_epochs, 'batch_size': batch_size, 'verbose': verbose}
     myOpt = Adam(lr=learning_rate)#, decay=my_decay)
     compileArgs['optimizer'] = myOpt
 
-    #name = "L"+str(n_layers)+"_N"+str(n_neurons)+"_E"+str(n_epochs)+"_Bs"+str(batch_size)+"_Lr"+str(learning_rate)+"_De"+str(my_decay)+"_Dr"+str(dropout_rate)+"_L2Reg"+str(regularizer)+"_Tr"+train_DM+"_Te"+test_point+"_DT"+suffix
+    # Naming the Model
     name = str("Model")
     if iteration > 0:
         name=str(name)+"_Ver_"+str(iteration)
 
-    ## Directory to save your NN files. Edit lgbk variable in localConfig.py DONE
-    filepath ="/home/t3cms/ev19u045/LSTORE/ev19_artim/StopNN/test/{}/".format(name)
+    # Creating the directory where the fileswill be stored
+    filepath ="/home/t3cms/ev19u043/LSTORE/ev19_artim/StopNN/test/{}/".format(name)
     if not os.path.exists(filepath):
         os.mkdir(filepath)
 
-
+    # Printing stuff and starting time
     if args.verbose:
         print("Dir "+filepath+" created.")
         print("Starting the training")
         start = time.time()
 
-    ## EXERCISE 2: Create your NN model []
-        # Please, inset your code here.......
+    # Model's architecture
     model=Sequential()
     model.add(Dense(14, input_dim=12, activation='relu'))
+    model.add(Dense(7, activation='relu'))
     model.add(Dense(1, activation='sigmoid'))
     #compile
     model.compile(**compileArgs)
 
+    # Creating a text file where all of the model's caracteristics are displayed
 
 
-    ##Fit your model
+
+
+
+    #Fitting the Model
     history = model.fit(XDev, YDev, validation_data=(XVal,YVal,weightVal), sample_weight=weightDev,shuffle=True, **trainParams)
 
     acc = history.history["acc"]
@@ -98,34 +99,38 @@ if __name__ == "__main__":
     assure_path_exists(filepath+"accuracy/")
     assure_path_exists(filepath+"loss/")
 
-    ## Save accuracy and loss values in a pickle file for later plotting
+    # Saving accuracy and loss values in a pickle file for later plotting
     pickle.dump(acc, open(filepath+"accuracy/acc_"+name+".pickle", "wb"))
     pickle.dump(loss, open(filepath+"loss/loss_"+name+".pickle", "wb"))
     pickle.dump(val_acc, open(filepath+"accuracy/val_acc_"+name+".pickle", "wb"))
     pickle.dump(val_loss, open(filepath+"loss/val_loss_"+name+".pickle", "wb"))
 
+    # Time of the training
     if args.verbose:
         print("Training took ", time.time()-start, " seconds")
 
-    ## Save your trainned model and weights
+    # Saving the trainned model and his weights
     model.save(filepath+name+".h5")
     model_json = model.to_json()
     with open(filepath+name + ".json", "w") as json_file:
       json_file.write(model_json)
     model.save_weights(filepath+name  + "_w.h5")
 
+    #Getting predictions
     if args.verbose:
         print("Getting predictions")
 
     devPredict = model.predict(XDev)
     valPredict = model.predict(XVal)
 
+    #Getting scores
     if args.verbose:
         print("Getting scores")
 
     scoreDev = model.evaluate(XDev, YDev, sample_weight=weightDev, verbose = 0)
     scoreVal = model.evaluate(XVal, YVal, sample_weight=weightVal, verbose = 0)
 
+    # CAlculating FOM
     if args.verbose:
         print "Calculating FOM:"
     dataVal["NN"] = valPredict
@@ -149,6 +154,7 @@ if __name__ == "__main__":
 
     max_FOM=0
 
+    # Maximising FOM
     if args.verbose:
         print "Maximizing FOM"
 
@@ -164,29 +170,26 @@ if __name__ == "__main__":
         print "Maximized FOM:", max_FOM
         print "FOM Cut:", fomCut[fomEvo.index(max_FOM)]
 
-    ## Plot accuracy and loss evolution over epochs for both training and validation datasets
+    # Plot accuracy and loss evolution over epochs for both training and validation datasets
     if not args.batch:
-        from commonFunctions import plotter
 
-        ## Plot accuracy for training and validation datasets of epochs
-        # Accuracy
         fig=plt.figure()
 
+        # Accuracy
         plt.subplot(2,1,1)
-        plotter(filepath+"accuracy/acc_"+name+".pickle","accuracy",name+"'s Accuracy")
+        plotter(filepath+"accuracy/acc_"+name+".pickle","accuracy"," ")
         plotter(filepath+"accuracy/val_acc_"+name+".pickle","Val accuracy",name+"'s Accuracy's validation")
-        #plt.savefig(filepath+"accuracy/Accuracy.pdf")
 
+        # Loss Function
+        plt.subplot(2,2,1)
+        plotter(filepath+"loss/loss_"+name+".pickle","loss"," ")
+        plotter(filepath+"loss/val_loss_"+name+".pickle","loss Validation",name+"'s Loss Validation ")
 
-        #Loss Function
-        plt.subplot(2,1,2)
-        plotter(filepath+"loss/loss_"+name+".pickle","loss",name+"'s Loss function // "+compileArgs['loss'])
-        plotter(filepath+"loss/val_loss_"+name+".pickle","loss Validation",name+"'s Loss function Validation // "+compileArgs['loss'])
-        #plt.savefig(filepath+"loss/Loss_Validation_"+compileArgs['loss']+".pdf")
         plt.savefig(filepath+name+"Accuracy_Loss_"+compileArgs['loss']+".pdf")
         plt.close()
 
 
         if args.verbose:
-            print "Model name: "+name
+            print("Accuraccy and loss plotted at {}".format(filepath))
+            print ("Model name: "+name)
         sys.exit("Done!")
