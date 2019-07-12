@@ -326,6 +326,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 
 def NNarch(act,*args):
+    model=Sequential()
     i_max = len(list(args))
     model.add(Dense(int(args[0]), input_dim=12, activation=str(act)))
     i=1
