@@ -82,14 +82,8 @@ if __name__ == "__main__":
         start = time.time()
 
     # Model's architecture
-    model = Sequential()
-    i_max = len(architecture)
-    model.add(Dense(int(architecture[0]), input_dim=12, activation='relu'))
-    i=1
-    while i < i_max :
-        model.add(Dense(int(architecture[i]), activation='relu'))
-        i=i+1
-    model.add(Dense(1, activation='sigmoid'))
+    model=Sequential()
+    NNarch('relu', *architecture)
     # Compile
     model.compile(**compileArgs)
 
@@ -186,12 +180,12 @@ if __name__ == "__main__":
 
         # Accuracy
         plt.subplot(2,1,1)
-        plotter(filepath+"accuracy/acc_"+name+".pickle","accuracy"," ")
+        plotter(filepath+"accuracy/acc_"+name+".pickle","accuracy","acc")
         plotter(filepath+"accuracy/val_acc_"+name+".pickle","Val accuracy",name+"'s Accuracy's validation")
 
         # Loss Function
-        plt.subplot(2,2,1)
-        plotter(filepath+"loss/loss_"+name+".pickle","loss"," ")
+        plt.subplot(2,1,2)
+        plotter(filepath+"loss/loss_"+name+".pickle","loss","loss")
         plotter(filepath+"loss/val_loss_"+name+".pickle","loss Validation",name+"'s Loss Validation ")
 
         plt.savefig(filepath+name+"Accuracy_Loss_"+compileArgs['loss']+".pdf")
