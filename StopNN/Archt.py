@@ -1,6 +1,6 @@
 import keras
 
-def NNarch(act,list):
+def NNarch(act,*args):
 
     i_max = len(list)
 
