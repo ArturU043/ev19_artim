@@ -1,7 +1,7 @@
                                                          INFOS ET SITES UTILES 
                                                          
     To DO LIST:
-    *find where do those files come from.
+    * improve 
                                                          
     ROOT:                                                   
     * Explication complete histogrammes root : https://root.cern.ch/root/htmldoc/guides/users-guide/Histograms.html
@@ -10,6 +10,9 @@
     * https://wiki-lip.lip.pt/Computing/LIP_Lisbon_Farm
     
     NN:
+    * Optimisation 
+      https://arxiv.org/ftp/arxiv/papers/1808/1808.05979.pdf
+      https://www.dlology.com/blog/one-simple-trick-to-train-keras-model-faster-with-batch-normalization/
     * Site de Giles Strong NN: https://amva4newphysics.wordpress.com/tag/neural-networks/
     * Un livre sur le Machine Learning: http://www.deeplearningbook.org/
     * Les amphi de Standfort sur le Machine Learning: https://www.youtube.com/watch?v=NfnWJUyUJYU&list=PLkt2uSq6rBVctENoVBg1TpCC7OQi31AlC
