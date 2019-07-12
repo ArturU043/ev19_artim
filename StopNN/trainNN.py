@@ -82,8 +82,15 @@ if __name__ == "__main__":
         start = time.time()
 
     # Model's architecture
-    model=Sequential()
-    NNarch('relu', *architecture)
+    model = Sequential()
+    i_max = len(architecture)
+    model.add(Dense(int(architecture[0]), input_dim=12, activation='relu'))
+    i=1
+    while i < i_max :
+        model.add(Dense(int(architecture[i]), activation='relu'))
+        i=i+1
+    model.add(Dense(1, activation='sigmoid'))
+
     # Compile
     model.compile(**compileArgs)
 
