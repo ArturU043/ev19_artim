@@ -22,6 +22,7 @@
           with mathplotlib: https://matplotlib.org/3.1.1/tutorials/index.html#introductory
                              
     Questions
+    https://www.youtube.com/watch?v=Ql8QPcp8818
     
                              
       
