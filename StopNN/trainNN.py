@@ -94,10 +94,7 @@ if __name__ == "__main__":
     # Compile
     model.compile(**compileArgs)
 
-    # Creating a text file where all of the model's caracteristics are displayed
-    f=open(testpath + "README.md", "a")
-    f.write("\n \n **{}** : Neuron-Layers 12 {} 1 ; Activation: ReLu ; Output: Sigmoid ; Batch size:{} ; Epochs: {} ; Step size: {} ; Optimizer: Adam ; Regulizer: {} \n ".format(name, list, batch_size, n_epochs, learning_rate, regularizer ))
-    f.close()
+
 
     #Fitting the Model
     history = model.fit(XDev, YDev, validation_data=(XVal,YVal,weightVal), sample_weight=weightDev,shuffle=True, **trainParams)
@@ -180,6 +177,15 @@ if __name__ == "__main__":
 
         print "Maximized FOM:", max_FOM
         print "FOM Cut:", fomCut[fomEvo.index(max_FOM)]
+
+
+     # Creating a text file where all of the model's caracteristics are displayed
+f=open(testpath + "README.md", "a")
+f.write("\n \n **{}** : Neuron-Layers 12 {} 1 ; Activation: ReLu ; Output: Sigmoid ; Batch size:{} ; Epochs: {} ; Step size: {} ; Optimizer: Adam ; Regulizer: {} ; Max FOM : {} \n ".format(name, list, batch_size, n_epochs, learning_rate, regularizer, max_FOM ))
+f.close()
+
+
+
 
     # Plot accuracy and loss evolution over epochs for both training and validation datasets
     if not args.batch:
