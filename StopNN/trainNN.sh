@@ -4,8 +4,8 @@
 #$ -pe mcore 3
 
 #$ -l container=True
-#...$ -v CONTAINER=CENTOS7
-#$ -v CONTAINER=UBUNTU16
+#$ -v CONTAINER=CENTOS7
+#...$ -v CONTAINER=UBUNTU16
 
 #...$ -v SGEIN=script.py
 #...$ -v SGEIN=pima-indians-diabetes.data
@@ -19,4 +19,4 @@ cd /home/t3cms/ev19u043/LSTORE/ev_artim/StopNN
 
 module load root-6.10.02
 
-python trainNN.py -a 3000 -b 0.001 -e 100 -i 3 -l "14 21 7" -v
+python trainNN.py -a 3000 -b 0.001 -e 100 -i 3 -l "14 21 7"
