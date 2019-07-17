@@ -3,7 +3,8 @@
     To DO LIST:
     * improve: -Regulazers (dropouts)
                - Softmax
-               -Kernel initializers (he_normal, see Keras.io)                                                  
+               -Kernel initializers (he_normal, see Keras.io)  
+               -argument de L2 proportionnel a scale loss
     ROOT:                                                   
     * Explication complete histogrammes root : https://root.cern.ch/root/htmldoc/guides/users-guide/Histograms.html
       
