@@ -22,6 +22,8 @@
                              et le GitHub: https://github.com/cs231n/cs231n.github.io
     *Plot with keras: https://keras.io/visualization
           with mathplotlib: https://matplotlib.org/3.1.1/tutorials/index.html#introductory
+    *Fropout et autres trucs utiles : https://machinelearningmastery.com/dropout-regularization-deep-learning-models-keras/
+                                      http://jmlr.org/papers/volume15/srivastava14a.old/srivastava14a.pdf
                              
     Questions
     https://www.youtube.com/watch?v=Ql8QPcp8818
