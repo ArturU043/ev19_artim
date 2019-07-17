@@ -1,8 +1,9 @@
                                                          INFOS ET SITES UTILES 
                                                          
     To DO LIST:
-    * improve 
-                                                         
+    * improve: -Regulazers (dropouts)
+               - Softmax
+               -Kernel initializers (he_normal, see Keras.io)                                                  
     ROOT:                                                   
     * Explication complete histogrammes root : https://root.cern.ch/root/htmldoc/guides/users-guide/Histograms.html
       
