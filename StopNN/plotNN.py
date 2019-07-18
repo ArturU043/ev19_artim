@@ -153,7 +153,7 @@ if __name__ == "__main__":
         plt.plot(val_acc)
         plt.title('Model accuracy')
         plt.ylabel('Accuracy')
-        plt.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
+       #plt.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
         plt.xlabel('Epoch')
         plt.legend(['train'], loc='best')
         plt.legend(['train', 'test'], loc='best')
