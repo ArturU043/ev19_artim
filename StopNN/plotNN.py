@@ -33,6 +33,8 @@ if __name__ == "__main__":
     parser.add_argument('-k', '--local', action='store_true', help='Local file')
     parser.add_argument('-d', '--preview', action='store_true', help='Preview plots')
 
+#python plotNN.py -v -f Model_Ver_3 -b -c -o -p -r -s
+
 #    parser.add_argument('-b', '--batch', action='store_true', help='Whether this is a batch job, if it is, no interactive questions will be asked and answers will be assumed')
 #    parser.add_argument('-p', '--dropoutRate', type=float, default=0, help='Dropout Rate')
 #    parser.add_argument('-dc', '--decay', type=float, default=0, help='Learning rate decay')
@@ -55,9 +57,12 @@ if __name__ == "__main__":
 
     if args.singleNN:
         # -f L2_N14_E500_Bs15000_Lr0.003_Dr0.0_De0_TP550_520_DT_skimmed -davs
-        filepath = cfg.lgbk + "SingleNN/" + model_name
+        filepath = cfg.lgbk + "test/" + model_name
         #loss_path = ""
         #acc_path = ""
+
+
+
     elif args.gridSearch:
         # -f E300_Bs30000_Lr0.01_De0 -davx -l 1 -n 19
         filepath = cfg.lgbk + "Searches/"+ model_name
@@ -72,6 +77,9 @@ if __name__ == "__main__":
         model_name = "L"+str(args.layers)+"_N"+str(args.neurons)+"_"+test_point+"_run"+str(args.runNum)
     elif args.local:
         filepath = "/home/diogo/PhD/SingleNN/" + model_name
+
+
+
 
     os.chdir(filepath)
     plots_path = filepath+"/plots_"+model_name+"/"
@@ -153,7 +161,7 @@ if __name__ == "__main__":
         plt.plot(val_acc)
         plt.title('Model accuracy')
         plt.ylabel('Accuracy')
-       #plt.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
+        #plt.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
         plt.xlabel('Epoch')
         plt.legend(['train'], loc='best')
         plt.legend(['train', 'test'], loc='best')
