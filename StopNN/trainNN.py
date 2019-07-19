@@ -185,7 +185,7 @@ if __name__ == "__main__":
 
      # Creating a text file where all of the model's caracteristics are displayed
 	f=open(testpath + "README.md", "a")
-	f.write("\n \n **{}** : Neuron-Layers 12 {} 1 ; Activation: ReLu ; Output: Sigmoid ; Batch size:{} ; Epochs: {} ; Step size: {} ; Optimizer: Adam ; Regulizer: {} ; Max FOM : {} ; Weight Initializer  \n ".format(name, list, batch_size, n_epochs, learning_rate, regularizer, max_FOM , ini ))
+	f.write("\n \n **{}** : Neuron-Layers 12 {} 1 ; Activation: ReLu ; Output: Sigmoid ; Batch size:{} ; Epochs: {} ; Step size: {} ; Optimizer: Adam ; Regulizer: {} ; Max FOM : {} ; Weight Initializer {} \n ".format(name, list, batch_size, n_epochs, learning_rate, regularizer, max_FOM , ini ))
 	f.close()
 
 
