@@ -36,7 +36,7 @@ if __name__ == "__main__":
     parser.add_argument('-r', '--regularizer', type=float, default=0, help='Regularizer')
     parser.add_argument('-i', '--iteration', type=int, default=1, help='Iteration number i')
     parser.add_argument('-l', '--list', type=str, required=True, help='Defines the architecture of the NN; e.g: -l "14 12 7"  ->3 hidden layers of 14, 12 and 7 neurons respectively (input always 12, output always 1)')
-    parser.add_argument('-ini', '--initializer', type=str, default="Default", help='Kernel Initializer')
+    parser.add_argument('-ini', '--initializer', type=str, default="glorot_uniform", help='Kernel Initializer')
     #parser.add_argument('-act', '--act', type=str, default="none", help='activation function for the hidden neurons')
 
     args = parser.parse_args()
@@ -87,15 +87,11 @@ if __name__ == "__main__":
     # Model's architecture
     model = Sequential()
     i_max = len(architecture)
-           #initializers
-    if ini =! "Default" :
-        keras.initializers.ini(seed=None)
 
-
-    model.add(Dense(int(architecture[0]), input_dim=12, activation='relu'))
+    model.add(Dense(int(architecture[0]), input_dim=12, activation='relu' , kernel_initializer=ini))
     i=1
     while i < i_max :
-        model.add(Dense(int(architecture[i]), activation='relu'))
+        model.add(Dense(int(architecture[i]), activation='relu' , kernel_initializer=ini))
         i=i+1
     model.add(Dense(1, activation='sigmoid'))
 
