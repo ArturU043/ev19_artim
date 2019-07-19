@@ -36,13 +36,14 @@ if __name__ == "__main__":
     parser.add_argument('-r', '--regularizer', type=float, default=0, help='Regularizer')
     parser.add_argument('-i', '--iteration', type=int, default=1, help='Iteration number i')
     parser.add_argument('-l', '--list', type=str, required=True, help='Defines the architecture of the NN; e.g: -l "14 12 7"  ->3 hidden layers of 14, 12 and 7 neurons respectively (input always 12, output always 1)')
-    parser.add_argument('-act', '--act', type=str, default="none", help='activation function for the hidden neurons')
+    parser.add_argument('-ini', '--initializer', type=str, default="Default", help='Kernel Initializer')
+    #parser.add_argument('-act', '--act', type=str, default="none", help='activation function for the hidden neurons')
 
     args = parser.parse_args()
 
     #n_layers = args.layers
     #n_neurons = args.neurons
-    act = args.act
+    #act = args.act
     n_epochs = args.epochs
     batch_size = args.batchSize
     learning_rate = args.learningRate
@@ -50,6 +51,7 @@ if __name__ == "__main__":
     dropout_rate = args.dropoutRate
     regularizer = args.regularizer
     iteration = args.iteration
+    ini = args.initializer
     list=args.list
     architecture=list.split()
 
@@ -86,8 +88,8 @@ if __name__ == "__main__":
     model = Sequential()
     i_max = len(architecture)
            #initializers
-    if act =! "none" :
-        keras.initializers.he_normal(seed=None)
+    if ini =! "Default" :
+        keras.initializers.ini(seed=None)
 
 
     model.add(Dense(int(architecture[0]), input_dim=12, activation='relu'))
@@ -187,7 +189,7 @@ if __name__ == "__main__":
 
      # Creating a text file where all of the model's caracteristics are displayed
 	f=open(testpath + "README.md", "a")
-	f.write("\n \n **{}** : Neuron-Layers 12 {} 1 ; Activation: ReLu ; Output: Sigmoid ; Batch size:{} ; Epochs: {} ; Step size: {} ; Optimizer: Adam ; Regulizer: {} ; Max FOM : {} ; Activation Function {} \n ".format(name, list, batch_size, n_epochs, learning_rate, regularizer, max_FOM , act ))
+	f.write("\n \n **{}** : Neuron-Layers 12 {} 1 ; Activation: ReLu ; Output: Sigmoid ; Batch size:{} ; Epochs: {} ; Step size: {} ; Optimizer: Adam ; Regulizer: {} ; Max FOM : {} ; Weight Initializer  \n ".format(name, list, batch_size, n_epochs, learning_rate, regularizer, max_FOM , ini ))
 	f.close()
 
 
