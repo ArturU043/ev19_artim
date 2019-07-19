@@ -207,6 +207,10 @@ if __name__ == "__main__":
         if args.preview:
             plt.show()
 
+
+
+
+            #PLOTTING FOM AND Efficiency
     if args.efficiencyAndFOM:
         from commonFunctions import FOM1, FOM2, FullFOM, getYields
 
@@ -262,7 +266,7 @@ if __name__ == "__main__":
         plt.subplots_adjust(hspace=0.5)
 
         plt.subplot(211)
-        plt.plot(fomCut, fomEvo)
+        plt.plot(fomCut, fomEvo, linewidth = 0.5)
         plt.title("FOM")
         plt.ylabel("FOM")
         plt.xlabel("ND")
@@ -270,7 +274,7 @@ if __name__ == "__main__":
         plt.grid()
 
         plt.subplot(212)
-        plt.semilogy(fomCut, Eff)
+        plt.semilogy(fomCut, Eff , linewidth = 0.5)
         plt.axvspan(fomCut[fomEvo.index(max_FOM)], 1, facecolor='#2ca02c', alpha=0.3)
         #plt.axvline(x=fomCut[fomEvo.index(max_FOM)], ymin=0, ymax=1)
         plt.title("Efficiency")
@@ -282,7 +286,46 @@ if __name__ == "__main__":
         plt.savefig(plots_path+'FOM_EFF_'+model_name+'.pdf', bbox_inches='tight')
         if args.preview:
             plt.show()
+        plt.close()
 
+
+
+        #SAME BUT ZOOMED IN , NO LOG yscale
+        plt.figure(figsize=(7,6))
+        plt.subplots_adjust(hspace=0.5)
+
+        plt.subplot(211)
+        plt.plot(fomCut, fomEvo, linewidth = 0.5)
+        plt.xlim(0.8 , 1.2)
+        plt.title("FOM")
+        plt.ylabel("FOM")
+        plt.xlabel("ND")
+        plt.legend(["Max. FOM: {0}".format(max_FOM)], loc='best')
+        plt.grid()
+
+        plt.subplot(212)
+        plt.plot(fomCut, Eff , linewidth = 0.5)
+        plt.xlim(0.8 , 1.2)
+        plt.axvspan(fomCut[fomEvo.index(max_FOM)], 1, facecolor='#2ca02c', alpha=0.3)
+        #plt.axvline(x=fomCut[fomEvo.index(max_FOM)], ymin=0, ymax=1)
+        plt.title("Efficiency")
+        plt.ylabel("Eff")
+        plt.xlabel("ND")
+        plt.legend(['Background', 'Signal'], loc='best')
+        plt.grid()
+
+        plt.savefig(plots_path+'FOM_EFF_zoomed'+model_name+'.pdf', bbox_inches='tight')
+        if args.preview:
+            plt.show()
+        plt.close()
+
+
+
+
+
+
+
+        #PLOTTING the ROC function
     if args.areaUnderROC:
         from sklearn.metrics import roc_auc_score, roc_curve
 
@@ -295,7 +338,7 @@ if __name__ == "__main__":
             print "ROC Curve IntegralVal:", roc_integralVal
 
         plt.plot(fprDev, tprDev, '--')
-        plt.plot(fprVal, tprVal)
+        plt.plot(fprVal, tprVal, linewidth=0.5)
         plt.xlabel('False positive rate')
         plt.ylabel('True positive rate')
         plt.title('ROC curve')
@@ -304,6 +347,21 @@ if __name__ == "__main__":
         plt.savefig(plots_path+'ROC_'+model_name+'.pdf', bbox_inches='tight')
         if args.preview:
             plt.show()
+        plt.close()
+
+            #PLOTTING ROCK ZOOMED
+        plt.plot(fprDev, tprDev, '--')
+        plt.plot(fprVal, tprVal, linewidth=0.5)
+        plt.xlim(0 , 0.3)
+        plt.xlabel('False positive rate')
+        plt.ylabel('True positive rate')
+        plt.title('ROC curve')
+        rocLegend = ["Dev Integral: {0}".format(roc_integralDev),"Val Integral: {0}".format(roc_integralVal)]
+        plt.legend(rocLegend, loc='best')
+        plt.savefig(plots_path+'ROC_zoomed'+model_name+'.pdf', bbox_inches='tight')
+        if args.preview:
+            plt.show()
+        plt.close()
 
     if args.weights:
         import math

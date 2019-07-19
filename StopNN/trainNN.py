@@ -195,14 +195,17 @@ if __name__ == "__main__":
     if not args.batch:
         from commonFunctions import plotter
         fig=plt.figure()
+        plt.subplots_adjust(hspace=0.5)
+
+
         plt.subplot(2,1,1)
         plotter(filepath+"accuracy/acc_"+name+".pickle","accuracy",name+"'s accuracy")
-        plotter(filepath+"accuracy/val_acc_"+name+".pickle","Val accuracy",name+"'s Accuracy's validation")
+        plotter(filepath+"accuracy/val_acc_"+name+".pickle","Val accuracy",name+"'s Accuracy")
         #plt.savefig(filepath+"accuracy/Accuracy.pdf")
 
         plt.subplot(2,1,2)
         plotter(filepath+"loss/loss_"+name+".pickle","loss",name +"loss function")
-        plotter(filepath+"loss/val_loss_"+name+".pickle","loss Validation",name+"'s Loss Validation ")
+        plotter(filepath+"loss/val_loss_"+name+".pickle","loss Validation",name+"'s Loss")
         #plt.savefig(filepath + "loss/Loss_Validation.pdf")
 
         plt.savefig(filepath+name+"Accuracy_Loss_"+compileArgs['loss']+".pdf")
