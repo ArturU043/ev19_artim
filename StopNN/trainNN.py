@@ -36,13 +36,13 @@ if __name__ == "__main__":
     parser.add_argument('-r', '--regularizer', type=float, default=0, help='Regularizer')
     parser.add_argument('-i', '--iteration', type=int, default=1, help='Iteration number i')
     parser.add_argument('-l', '--list', type=str, required=True, help='Defines the architecture of the NN; e.g: -l "14 12 7"  ->3 hidden layers of 14, 12 and 7 neurons respectively (input always 12, output always 1)')
-    #parser.add_argument('-act', '--act', type=str, required= True, help='activation functio for the hidden neurons')
+    parser.add_argument('-act', '--act', type=str, default="none", help='activation function for the hidden neurons')
 
     args = parser.parse_args()
 
     #n_layers = args.layers
     #n_neurons = args.neurons
-    #act = args.act
+    act = args.act
     n_epochs = args.epochs
     batch_size = args.batchSize
     learning_rate = args.learningRate
@@ -70,10 +70,9 @@ if __name__ == "__main__":
         name=str(name)+"_Ver_"+str(iteration)
 
     # Creating the directory where the fileswill be stored
-    #testpath ="/home/t3cms/ev19u043/LSTORE/ev19_artim/StopNN/test/"
-    #filepath ="/home/t3cms/ev19u043/LSTORE/ev19_artim/StopNN/test/{}/".format(name)
-    testpath ="test/"
-    filepath ="test/{}/".format(name)
+    testpath ="/home/t3cms/ev19u043/LSTORE/ev19_artim/StopNN/test/"
+    filepath ="/home/t3cms/ev19u043/LSTORE/ev19_artim/StopNN/test/{}/".format(name)
+
     if not os.path.exists(filepath):
         os.mkdir(filepath)
 
@@ -86,6 +85,11 @@ if __name__ == "__main__":
     # Model's architecture
     model = Sequential()
     i_max = len(architecture)
+           #initializers
+    if act =! "none" :
+        keras.initializers.he_normal(seed=None)
+
+
     model.add(Dense(int(architecture[0]), input_dim=12, activation='relu'))
     i=1
     while i < i_max :
@@ -183,7 +187,7 @@ if __name__ == "__main__":
 
      # Creating a text file where all of the model's caracteristics are displayed
 	f=open(testpath + "README.md", "a")
-	f.write("\n \n **{}** : Neuron-Layers 12 {} 1 ; Activation: ReLu ; Output: Sigmoid ; Batch size:{} ; Epochs: {} ; Step size: {} ; Optimizer: Adam ; Regulizer: {} ; Max FOM : {} \n ".format(name, list, batch_size, n_epochs, learning_rate, regularizer, max_FOM ))
+	f.write("\n \n **{}** : Neuron-Layers 12 {} 1 ; Activation: ReLu ; Output: Sigmoid ; Batch size:{} ; Epochs: {} ; Step size: {} ; Optimizer: Adam ; Regulizer: {} ; Max FOM : {} ; Activation Function {} \n ".format(name, list, batch_size, n_epochs, learning_rate, regularizer, max_FOM , act ))
 	f.close()
 
 
