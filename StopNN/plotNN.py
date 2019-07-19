@@ -295,8 +295,9 @@ if __name__ == "__main__":
         plt.subplots_adjust(hspace=0.5)
 
         plt.subplot(211)
-        plt.plot(fomCut, fomEvo, linewidth = 0.5)
-        plt.xlim(0.8 , 1.2)
+        plt.plot(fomCut, fomEvo, linewidth = 0.3)
+        plt.xlim(0.8 ,1.01)
+        plt.xticks(np.arange(0.8 , 1.01, step = 0.01))
         plt.title("FOM")
         plt.ylabel("FOM")
         plt.xlabel("ND")
@@ -304,8 +305,9 @@ if __name__ == "__main__":
         plt.grid()
 
         plt.subplot(212)
-        plt.plot(fomCut, Eff , linewidth = 0.5)
-        plt.xlim(0.8 , 1.2)
+        plt.plot(fomCut, Eff , linewidth = 0.3)
+        plt.xlim(0.8 , 1.01)
+        plt.xticks(np.arange(0.8 , 1.01, step = 0.01))
         plt.axvspan(fomCut[fomEvo.index(max_FOM)], 1, facecolor='#2ca02c', alpha=0.3)
         #plt.axvline(x=fomCut[fomEvo.index(max_FOM)], ymin=0, ymax=1)
         plt.title("Efficiency")
@@ -314,7 +316,7 @@ if __name__ == "__main__":
         plt.legend(['Background', 'Signal'], loc='best')
         plt.grid()
 
-        plt.savefig(plots_path+'FOM_EFF_zoomed'+model_name+'.pdf', bbox_inches='tight')
+        plt.savefig(plots_path+'FOM_EFF_zoomed_'+model_name+'.pdf', bbox_inches='tight')
         if args.preview:
             plt.show()
         plt.close()
@@ -358,7 +360,7 @@ if __name__ == "__main__":
         plt.title('ROC curve')
         rocLegend = ["Dev Integral: {0}".format(roc_integralDev),"Val Integral: {0}".format(roc_integralVal)]
         plt.legend(rocLegend, loc='best')
-        plt.savefig(plots_path+'ROC_zoomed'+model_name+'.pdf', bbox_inches='tight')
+        plt.savefig(plots_path+'ROC_zoomed_'+model_name+'.pdf', bbox_inches='tight')
         if args.preview:
             plt.show()
         plt.close()
