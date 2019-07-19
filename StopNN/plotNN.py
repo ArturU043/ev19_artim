@@ -15,7 +15,7 @@ if __name__ == "__main__":
     ## Input arguments. Pay speciall attention to the required ones.
     parser = argparse.ArgumentParser(description='Process the command line options')
     parser.add_argument('-v', '--verbose', action='store_true', help='Whether to print verbose output')
-    parser.add_argument('-f', '--file', required=True, help='File name')
+    parser.add_argument('-f', '--file',type=str, required=True, help='File name')
     parser.add_argument('-a', '--allPlots', action='store_true', help='Wether to plot all graphs')
     parser.add_argument('-b', '--loss', action='store_true', help='Loss plot')
     parser.add_argument('-c', '--accuracy', action='store_true', help='Accuracy plot')
@@ -81,9 +81,9 @@ if __name__ == "__main__":
 
 
 
-    os.chdir(filepath)
+    os.chdir(filepath+"/")
     plots_path = filepath+"/plots_"+model_name+"/"
-    assure_path_exists(plots_path+"dummy.txt")
+    assure_path_exists(plots_path)
 
     if args.verbose:
         print "Loading Model ..."
@@ -140,7 +140,7 @@ if __name__ == "__main__":
         plt.plot(loss)
         plt.plot(val_loss)
         plt.yscale('log')
-	    plt.grid()
+	plt.grid()
         plt.title('Model loss')
         plt.ylabel('Loss')
         #plt.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
