@@ -296,7 +296,7 @@ if __name__ == "__main__":
 
         plt.subplot(211)
         plt.plot(fomCut, fomEvo, linewidth = 0.3)
-        plt.xlim(0.8 ,1.01)
+        plt.xlim(0.95 ,1.01)
         plt.xticks(np.arange(0.8 , 1.01, step = 0.01))
         plt.title("FOM")
         plt.ylabel("FOM")
@@ -306,7 +306,7 @@ if __name__ == "__main__":
 
         plt.subplot(212)
         plt.plot(fomCut, Eff , linewidth = 0.3)
-        plt.xlim(0.8 , 1.01)
+        plt.xlim(0.95 , 1.01)
         plt.xticks(np.arange(0.8 , 1.01, step = 0.01))
         plt.axvspan(fomCut[fomEvo.index(max_FOM)], 1, facecolor='#2ca02c', alpha=0.3)
         #plt.axvline(x=fomCut[fomEvo.index(max_FOM)], ymin=0, ymax=1)
