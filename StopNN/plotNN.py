@@ -139,7 +139,7 @@ if __name__ == "__main__":
 
         plt.plot(loss)
         plt.plot(val_loss)
-        plt.yscale('log')
+        plt.ylimit(0.0000012 , 0.0000006)
 	plt.grid()
         plt.title('Model loss')
         plt.ylabel('Loss')
@@ -150,7 +150,7 @@ if __name__ == "__main__":
         plt.savefig(plots_path+'loss_'+model_name+'.pdf')
         if args.preview:
             plt.show()
-
+        plt.close()
     if args.accuracy:
         import pickle
         acc = pickle.load(open(acc_path+"acc_"+model_name+".pickle", "rb"))
@@ -159,6 +159,7 @@ if __name__ == "__main__":
             print "val_acc = " + str(val_acc[-1])
         plt.plot(acc)
         plt.plot(val_acc)
+        plt.ylimit(0.7 ,1)
         plt.title('Model accuracy')
         plt.ylabel('Accuracy')
         #plt.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
@@ -168,6 +169,8 @@ if __name__ == "__main__":
         plt.savefig(plots_path+'acc_'+model_name+'.pdf')
         if args.preview:
             plt.show()
+        plt.close()
+
 
     if args.overtrainingCheck:
         from scipy.stats import ks_2samp
@@ -193,6 +196,7 @@ if __name__ == "__main__":
         plt.savefig(plots_path+'hist_'+model_name+'.pdf', bbox_inches='tight')
         if args.preview:
             plt.show()
+        plt.close()
 
     if args.prediction:
         both_dataDev=bkg_dataDev.append(sig_dataDev)
@@ -206,7 +210,7 @@ if __name__ == "__main__":
         plt.savefig(plots_path+'pred_'+model_name+'.pdf', bbox_inches='tight')
         if args.preview:
             plt.show()
-
+        plt.close()
 
 
 
@@ -237,6 +241,23 @@ if __name__ == "__main__":
         for k in fomEvo:
             if k>max_FOM:
                 max_FOM=k
+
+
+        #SAVE VALUES OF FOM EVO AND CUT TO DO A FOM SUMMARY
+        f= open(plots_path+"FOM_evo_data.txt","w+")
+
+        f.write("\n".join(map(str,fomEvo)))
+        f.close()
+
+        f= open(plots_path+"FOM_cut_data.txt","w+")
+
+        f.write("\n".join(map(str,fomCut)))
+        f.close()
+
+
+
+
+
 
         Eff = zip(bkgEff, sigEff)
 
@@ -351,7 +372,7 @@ if __name__ == "__main__":
             plt.show()
         plt.close()
 
-            #PLOTTING ROCK ZOOMED
+    '''        #PLOTTING ROCK ZOOMED
         plt.plot(fprDev, tprDev, '--')
         plt.plot(fprVal, tprVal, linewidth=0.5)
         plt.xlim(0 , 0.3)
@@ -364,7 +385,7 @@ if __name__ == "__main__":
         if args.preview:
             plt.show()
         plt.close()
-
+    '''
     if args.weights:
         import math
         from matplotlib.colors import LinearSegmentedColormap
