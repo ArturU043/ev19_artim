@@ -72,8 +72,8 @@ if __name__ == "__main__":
         name=str(name)+"_Ver_"+str(iteration)
 
     # Creating the directory where the fileswill be stored
-    testpath ="/home/t3cms/ev19u043/LSTORE/ev19_artim/StopNN/test/"
-    filepath ="/home/t3cms/ev19u043/LSTORE/ev19_artim/StopNN/test/{}/".format(name)
+    testpath =cfg.lgbk + "test/"
+    filepath =testpath + "{}/".format(name)
 
     if not os.path.exists(filepath):
         os.mkdir(filepath)
