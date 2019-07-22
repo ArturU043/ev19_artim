@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import os
-from commonFunctions import assure_path_exists
 import localConfig as cfg
 import numpy as np
 
