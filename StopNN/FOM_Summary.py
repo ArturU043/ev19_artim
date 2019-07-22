@@ -39,6 +39,7 @@ if __name__ == "__main__":
                 max_FOM=k
 
         print("Model_"+list[i]+" With max fom {}".format(max_FOM))
+        max_FOM= round (max_FOM,4)
         plt.plot(fom_Cut, fom_Evo, label="Model_{}  Max Fom={}".format(list[i],max_FOM))
         i=i+1
 
