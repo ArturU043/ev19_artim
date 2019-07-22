@@ -62,7 +62,39 @@ bkgDatasets = [
                 "ZJetsToNuNu_HT600to800",
                 "ZJetsToNuNu_HT800to1200",
                 "ZJetsToNuNu_HT1200to2500",
-                "ZJetsToNuNu_HT2500toInf"
+                "ZJetsToNuNu_HT2500toInf",
+                #Drell yan
+                "DYJetsToLL_M50_HT100to200",
+                "DYJetsToLL_M50_HT200to400",
+                "DYJetsToLL_M50_HT400to600",
+                "DYJetsToLL_M50_HT600to800",
+                "DYJetsToLL_M50_HT800to1200",
+                "DYJetsToLL_M50_HT1200to2500",
+                "DYJetsToLL_M5to50_HT100to200",
+                "DYJetsToLL_M5to50_HT200to400",
+                "DYJetsToLL_M50_HT400to600",
+                "DYJetsToLL_M5to50_HT600toInf",
+                #QCD
+                "QCD_HT50to100",
+                "QCD_HT100to200",
+                "QCD_HT200to300",
+                "QCD_HT300to500",
+                "QCD_HT500to700",
+                "QCD_HT700to1000",
+                "QCD_HT1000to1500",
+                "QCD_HT1500to2000",
+                "QCD_HT2000toInf",
+                #Single top
+                "TBar_tch_powheg",
+                "TBar_tWch_ext",
+                "T_tch_powheg",
+                "T_tWch_ext",
+                #?
+                "TTGJets",
+                #TTV
+                TTZToQQ
+                #VV - di-boson
+                WZ
               ]
 
 # Load the Data
