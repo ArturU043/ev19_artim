@@ -29,23 +29,22 @@ if __name__ == "__main__":
 
     #Importing data file
     i=0
+    plt.figure()
     while (i<len(path)):
-
         fom_Cut = np.loadtxt(path[i]+"FOM_cut_data.txt",delimiter="\n")
         fom_Evo = np.loadtxt(path[i]+"FOM_evo_data.txt",delimiter="\n")
         max_FOM=0
-	
-	for k in fom_Evo:
-	     if k>max_FOM:
-       	     	max_FOM=k
-	print("Model"+list[i]+" With max fom {}".format(max_FOM))
 
+        for k in fom_Evo:
+            if k>max_FOM:
+                max_FOM=k
+
+        print("Model_"+list[i]+" With max fom {}".format(max_FOM))
         plt.plot(fom_Cut, fom_Evo, label="Model_{}".format(i))
-  
         i=i+1
 
     plt.title("FOM Comparing")
     plt.ylabel("FOM")
     plt.xlabel("NN output")
+    plt.legend()
     plt.show()
-    
