@@ -39,7 +39,7 @@ if __name__ == "__main__":
                 max_FOM=k
 
         print("Model_"+list[i]+" With max fom {}".format(max_FOM))
-        plt.plot(fom_Cut, fom_Evo, label="Model_{}".format(i))
+        plt.plot(fom_Cut, fom_Evo, label="Model_{}  Max Fom={}".format(list[i],max_FOM))
         i=i+1
 
     plt.title("FOM Comparing")
