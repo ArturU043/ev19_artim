@@ -34,16 +34,16 @@ if __name__ == "__main__":
     parser.add_argument('-c', '--decay', type=float, default=0, help='Learning rate decay')
     parser.add_argument('-d', '--dropoutRate', type=float, default=0, help='Drop-out rate')
     parser.add_argument('-r', '--regularizer', type=float, default=0, help='Regularizer')
-    parser.add_argument('-i', '--iteration', type=int, default=1, help='Iteration number i')
+    parser.add_argument('-i', '--iteration', type=int, default=1, help='Version number i')
     parser.add_argument('-l', '--list', type=str, required=True, help='Defines the architecture of the NN; e.g: -l "14 12 7"  ->3 hidden layers of 14, 12 and 7 neurons respectively (input always 12, output always 1)')
-    parser.add_argument('-ini', '--initializer', type=str, default="glorot_uniform", help='Kernel Initializer')
-    #parser.add_argument('-act', '--act', type=str, default="none", help='activation function for the hidden neurons')
+    parser.add_argument('-ini', '--initializer', type=str, default="glorot_uniform", help='Kernel Initializer for hidden layers')
+    parser.add_argument('-act', '--act', type=str, default="relu", help='activation function for the hidden neurons')
 
     args = parser.parse_args()
 
     #n_layers = args.layers
     #n_neurons = args.neurons
-    #act = args.act
+    act = args.act
     n_epochs = args.epochs
     batch_size = args.batchSize
     learning_rate = args.learningRate
@@ -67,9 +67,7 @@ if __name__ == "__main__":
     compileArgs['optimizer'] = myOpt
 
     # Naming the Model
-    name = str("Model")
-    if iteration > 0:
-        name=str(name)+"_Ver_"+str(iteration)
+    name ="Model_Ver_"+str(iteration)
 
     # Creating the directory where the fileswill be stored
     testpath =cfg.lgbk + "test/"
@@ -86,19 +84,16 @@ if __name__ == "__main__":
 
     # Model's architecture
     model = Sequential()
-    i_max = len(architecture)
 
-    model.add(Dense(int(architecture[0]), input_dim=12, activation='relu' , kernel_initializer=ini))
+    model.add(Dense(int(architecture[0]), input_dim=12, activation=act , kernel_initializer=ini))
     i=1
-    while i < i_max :
-        model.add(Dense(int(architecture[i]), activation='relu' , kernel_initializer=ini))
+    while i < len(architecture) :
+        model.add(Dense(int(architecture[i]), activation=act , kernel_initializer=ini))
         i=i+1
     model.add(Dense(1, activation='sigmoid'))
 
     # Compile
     model.compile(**compileArgs)
-
-
 
     #Fitting the Model
     history = model.fit(XDev, YDev, validation_data=(XVal,YVal,weightVal), sample_weight=weightDev,shuffle=True, **trainParams)
@@ -185,9 +180,8 @@ if __name__ == "__main__":
 
      # Creating a text file where all of the model's caracteristics are displayed
 	f=open(testpath + "README.md", "a")
-	f.write("\n \n **{}** : Neuron-Layers 12 {} 1 ; Activation: ReLu ; Output: Sigmoid ; Batch size:{} ; Epochs: {} ; Step size: {} ; Optimizer: Adam ; Regulizer: {} ; Max FOM : {} ; Weight Initializer {} \n ".format(name, list, batch_size, n_epochs, learning_rate, regularizer, max_FOM , ini ))
+	f.write("\n \n **{}** : Neuron-Layers: 12 {} 1 ; Activation: {} ; Output: Sigmoid ; Batch size:{} ; Epochs: {} ; Step size: {} ; Optimizer: Adam ; Regulizer: {} ; Max FOM : {} ; Weight Initializer: {} \n ".format(name, list, act, batch_size, n_epochs, learning_rate, regularizer, max_FOM , ini ))
 	f.close()
-
 
 
 
