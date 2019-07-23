@@ -86,4 +86,7 @@
  
  
  **Model_Ver_9.01** : Neuron-Layers: 12 24 18 12 18 12 6 1 ; Activation: relu ; Output: Sigmoid ; Batch size:3000 ; Epochs: 100 ; Step size: 0.01 ; Optimizer: Adam ; Regulizer: 0 ; Max FOM : 3.17181052143 ; Weight Initializer: he_normal    
+
+
+ **Model_Ver_10.b1** : Neuron-Layers: 12 24 28 12 6 1 ; Activation: relu ; Output: Sigmoid ; Batch size:3000 ; Epochs: 100 ; Step size: 0.01 ; Optimizer: Adam ; Regulizer: 0 ; Max FOM : 2.64249107323 ; Weight Initializer: glorot_uniform (Full background)
  
