@@ -92,9 +92,19 @@ bkgDatasets = [
                 #?
                 "TTGJets",
                 #TTV
-                TTZToQQ
+                "TTW_LO",
+                "TTWToLNu",
+                "TTWToQQ",
+                "TTZ_LO",
+                "TTZToLLNuNu_m1to10",
+                "TTZToLLNuNu",
+                "TTZToQQ",
                 #VV - di-boson
-                WZ
+                "WW",
+                "WZ",
+                "ZZ"
+
+
               ]
 
 # Load the Data
