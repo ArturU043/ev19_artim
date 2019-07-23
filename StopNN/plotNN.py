@@ -32,6 +32,7 @@ if __name__ == "__main__":
     parser.add_argument('-u', '--runNum', type=int, help='Run number')
     parser.add_argument('-k', '--local', action='store_true', help='Local file')
     parser.add_argument('-d', '--preview', action='store_true', help='Preview plots')
+    parser.add_argument('-bk', '--bk', action='store_true', help='Wether or not you choose to load full background samples or only main ones')
 
 #python plotNN.py -v -f Model_Ver_3 -b -c -o -p -r -s
 
@@ -40,8 +41,12 @@ if __name__ == "__main__":
 #    parser.add_argument('-dc', '--decay', type=float, default=0, help='Learning rate decay')
 
     args = parser.parse_args()
+    if args.bk:
+        from prepareDATA_fullbackground import *
+    else:
+        from prepareDATA import *
 
-    from prepareDATA_fullbackground import *
+
     import matplotlib.pyplot as plt
     from keras.models import model_from_json
     from commonFunctions import assure_path_exists

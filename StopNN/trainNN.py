@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 #from scipy.stats import ks_2samp
 import localConfig as cfg
 import pickle
-from prepareDATA import *
+
 
 if __name__ == "__main__":
     import argparse
@@ -34,19 +34,22 @@ if __name__ == "__main__":
     parser.add_argument('-c', '--decay', type=float, default=0, help='Learning rate decay')
     parser.add_argument('-d', '--dropoutRate', type=float, default=0, help='Drop-out rate')
     parser.add_argument('-r', '--regularizer', type=float, default=0, help='Regularizer')
-    parser.add_argument('-i', '--iteration', type=float, default=1.0, help='Version number i')
+    parser.add_argument('-i', '--iteration', type=str, default=1.0, help='Version number i')
     parser.add_argument('-l', '--list', type=str, required=True, help='Defines the architecture of the NN; e.g: -l "14 12 7"  ->3 hidden layers of 14, 12 and 7 neurons respectively (input always 12, output always 1)')
     parser.add_argument('-ini', '--initializer', type=str, default="glorot_uniform", help='Kernel Initializer for hidden layers')
     parser.add_argument('-act', '--act', type=str, default="relu", help='activation function for the hidden neurons')
+    parser.add_argument('-bk', '--bk', action='store_true', help='Wether or not you choose to load full background samples or only main ones')
 
     args = parser.parse_args()
 
+    if args.bk:
+         from prepareDATA_fullbackground import *
+    else:
+        from prepareDATA import *
+
     #n_layers = args.layers
-    #n_neurons = args.neurons
-    act = args.act
-    n_epochs = args.epochs
-    batch_size = args.batchSize
-    learning_rate = args.learningRate
+    #n_neurons = ars.neurons
+    act = args.a    f args.learningRate
     my_decay = args.decay
     dropout_rate = args.dropoutRate
     regularizer = args.regularizer
@@ -67,7 +70,7 @@ if __name__ == "__main__":
     compileArgs['optimizer'] = myOpt
 
     # Naming the Model
-    name ="Model_Ver_"+str(iteration)
+    name ="Model_Ver_"+iteration
 
     # Creating the directory where the fileswill be stored
     testpath =cfg.lgbk + "test/"
@@ -179,12 +182,15 @@ if __name__ == "__main__":
 
 
      # Creating a text file where all of the model's caracteristics are displayed
-	f=open(testpath + "README.md", "a")
-	f.write("\n \n **{}** : Neuron-Layers: 12 {} 1 ; Activation: {} ; Output: Sigmoid ; Batch size:{} ; Epochs: {} ; Step size: {} ; Optimizer: Adam ; Regulizer: {} ; Max FOM : {} ; Weight Initializer: {}   (Full background)  \n ".format(name, list, act, batch_size, n_epochs, learning_rate, regularizer, max_FOM , ini ))
-	f.close()
-
-
-
+    if args.bk:
+        f=open(testpath + "README.md", "a")
+        f.write("\n \n **{}** : Neuron-Layers: 12 {} 1 ; Activation: {} ; Output: Sigmoid ; Batch size:{} ; Epochs: {} ; Step size: {} ; Optimizer: Adam ; Regulizer: {} ; Max FOM : {} ; Weight Initializer: {} (Full background)  \n ".format(name, list, act, batch_size, n_epochs, learning_rate, regularizer, max_FOM , ini ))
+        f.close()
+    else:
+        f=open(testpath + "README.md", "a")
+        f.write("\n \n **{}** : Neuron-Layers: 12 {} 1 ; Activation: {} ; Output: Sigmoid ; Batch size:{} ; Epochs: {} ; Step size: {} ; Optimizer: Adam ; Regulizer: {} ; Max FOM : {} ; Weight Initializer: {}   \n ".format(name, list, act, batch_size, n_epochs, learning_rate, regularizer, max_FOM , ini ))
+        f.close()
+        
     # Plot accuracy and loss evolution over epochs for both training and validation datasets
     if not args.batch:
         from commonFunctions import plotter
