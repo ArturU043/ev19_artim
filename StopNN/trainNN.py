@@ -49,7 +49,10 @@ if __name__ == "__main__":
 
     #n_layers = args.layers
     #n_neurons = ars.neurons
-    act = args.a    f args.learningRate
+    act = args.act
+    n_epochs = args.epochs
+    batch_size = args.batchSize
+    learning_rate = args.learningRate
     my_decay = args.decay
     dropout_rate = args.dropoutRate
     regularizer = args.regularizer
@@ -190,7 +193,7 @@ if __name__ == "__main__":
         f=open(testpath + "README.md", "a")
         f.write("\n \n **{}** : Neuron-Layers: 12 {} 1 ; Activation: {} ; Output: Sigmoid ; Batch size:{} ; Epochs: {} ; Step size: {} ; Optimizer: Adam ; Regulizer: {} ; Max FOM : {} ; Weight Initializer: {}   \n ".format(name, list, act, batch_size, n_epochs, learning_rate, regularizer, max_FOM , ini ))
         f.close()
-        
+
     # Plot accuracy and loss evolution over epochs for both training and validation datasets
     if not args.batch:
         from commonFunctions import plotter
