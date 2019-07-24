@@ -38,12 +38,12 @@ if __name__ == "__main__":
     parser.add_argument('-l', '--list', type=str, required=True, help='Defines the architecture of the NN; e.g: -l "14 12 7"  ->3 hidden layers of 14, 12 and 7 neurons respectively (input always 12, output always 1)')
     parser.add_argument('-ini', '--initializer', type=str, default="glorot_uniform", help='Kernel Initializer for hidden layers')
     parser.add_argument('-act', '--act', type=str, default="relu", help='activation function for the hidden neurons')
-    parser.add_argument('-bk', '--bk', action='store_true', help='Wether or not you choose to load full background samples or only main ones')
+    parser.add_argument('-bk', '--bk', action='store_true', help='Whether or not you choose to load Zinv background samples or only W+jets and TTpow')
 
     args = parser.parse_args()
 
     if args.bk:
-         from prepareDATA_fullbackground import *
+         from prepareDATA_2_background import *
     else:
         from prepareDATA import *
 

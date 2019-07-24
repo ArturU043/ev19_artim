@@ -32,7 +32,7 @@ if __name__ == "__main__":
     parser.add_argument('-u', '--runNum', type=int, help='Run number')
     parser.add_argument('-k', '--local', action='store_true', help='Local file')
     parser.add_argument('-d', '--preview', action='store_true', help='Preview plots')
-    parser.add_argument('-bk', '--bk', action='store_true', help='Whether or not you choose to load full background samples or only main ones')
+    parser.add_argument('-bk', '--bk', action='store_true', help='Whether or not you choose to load Zinv background samples or only W+jets and TTpow')
 
 #python plotNN.py -v -f Model_Ver_3 -b -c -o -p -r -s
 
@@ -42,7 +42,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     if args.bk:
-        from prepareDATA_fullbackground import *
+        from prepareDATA_2_background import *
     else:
         from prepareDATA import *
 

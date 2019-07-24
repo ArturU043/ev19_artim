@@ -11,7 +11,7 @@ from sklearn.externals import joblib
 from sklearn import decomposition
 
 import localConfig as cfg
-from full_bckg_data_loader import StopDataLoader
+from W_TTpow_bckg_data_loader import StopDataLoader
 
 fraction = 1
 
