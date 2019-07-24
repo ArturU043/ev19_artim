@@ -32,7 +32,7 @@ if __name__ == "__main__":
     parser.add_argument('-u', '--runNum', type=int, help='Run number')
     parser.add_argument('-k', '--local', action='store_true', help='Local file')
     parser.add_argument('-d', '--preview', action='store_true', help='Preview plots')
-    parser.add_argument('-bk', '--bk', action='store_true', help='Wether or not you choose to load full background samples or only main ones')
+    parser.add_argument('-bk', '--bk', action='store_true', help='Whether or not you choose to load full background samples or only main ones')
 
 #python plotNN.py -v -f Model_Ver_3 -b -c -o -p -r -s
 
@@ -67,7 +67,6 @@ if __name__ == "__main__":
         #acc_path = ""
 
 
-
     elif args.gridSearch:
         # -f E300_Bs30000_Lr0.01_De0 -davx -l 1 -n 19
         filepath = cfg.lgbk + "Searches/"+ model_name
@@ -87,7 +86,11 @@ if __name__ == "__main__":
 
 
     os.chdir(filepath+"/")
-    plots_path = filepath+"/plots_"+model_name+"/"
+    if args.bk:
+        plots_path = filepath+"/plots_"+model_name+"_bk/"
+    else:
+        plots_path = filepath+"/plots_"+model_name+"/"
+
     assure_path_exists(plots_path)
 
     if args.verbose:
