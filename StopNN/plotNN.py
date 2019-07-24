@@ -87,7 +87,7 @@ if __name__ == "__main__":
 
     os.chdir(filepath+"/")
     if args.bk:
-        plots_path = filepath+"/plots_"+model_name+"_bk/"
+        plots_path = filepath+"/plots_"+model_name+"_2bk/"
     else:
         plots_path = filepath+"/plots_"+model_name+"/"
 
