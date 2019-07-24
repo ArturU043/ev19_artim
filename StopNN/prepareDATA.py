@@ -47,6 +47,9 @@ if number_of_events_print == 1:
     print "     Test Signal Events:", len(dataVal[dataVal.category==1])
     print "     Test Background Events:", len(dataVal[dataVal.category==0])
 '''
+data = dataDev.copy()
+data = data.append(dataVal.copy(), ignore_index=True)
+
 if number_of_events_print == 1:
     print 'Datasets contain a total of', len(data), '(', data.weight.sum()*luminosity, 'weighted) events:'
     print '  Development (train):', len(dataDev), '(', dataDev.weight.sum()*luminosity, 'weighted)'
@@ -56,8 +59,6 @@ if number_of_events_print == 1:
     print '    Signal:', len(dataVal[dataVal.category == 1]), '(', dataVal[dataVal.category == 1].weight.sum()*luminosity, 'weighted)'
     print '    Background:', len(dataVal[dataVal.category == 0]), '(', dataVal[dataVal.category == 0].weight.sum()*luminosity, 'weighted)'
 
-data = dataDev.copy()
-data = data.append(dataVal.copy(), ignore_index=True)
 
 print 'Finding features of interest'
 trainFeatures = [var for var in data.columns if var in myFeatures]
