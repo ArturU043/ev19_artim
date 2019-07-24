@@ -45,10 +45,10 @@
  **Model_Ver_10.b2** : Neuron-Layers: 12 24 18 12 6 1 ; Activation: relu ; Output: Sigmoid ; Batch size:3000 ; Epochs: 100 ; Step size: 0.01 ; Optimizer: Adam ; Regulizer: 0 ; Max FOM : 2.5741633872 ; Weight Initializer: glorot_uniform (Full background)  
 
 
- **Model_Ver_10.2b01** : Neuron-Layers: 12 24 18 12 18 12 6 1 ; Activation: relu ; Output: Sigmoid ; Batch size:3000 ; Epochs: 100 ; Step size: 0.01 ; Optimizer: Adam ; Regulizer: 0 ; Max FOM : 3.40835121836 ; Weight Initializer: he_normal (Full background)  
+ **Model_Ver_10.2b01** : Neuron-Layers: 12 24 18 12 18 12 6 1 ; Activation: relu ; Output: Sigmoid ; Batch size:3000 ; Epochs: 100 ; Step size: 0.01 ; Optimizer: Adam ; Regulizer: 0 ; Max FOM : 3.40835121836 ; Weight Initializer: he_normal (2 background)  
  
  
-**Model_Ver_10.2b02** : Neuron-Layers: 12 24 18 12 6 1 ; Activation: relu ; Output: Sigmoid ; Batch size:3000 ; Epochs: 100 ; Step size: 0.01 ; Optimizer: Adam ; Regulizer: 0 ; Max FOM : 3.54032468105 ; Weight Initializer: he_normal (Full background)  
+**Model_Ver_10.2b02** : Neuron-Layers: 12 24 18 12 6 1 ; Activation: relu ; Output: Sigmoid ; Batch size:3000 ; Epochs: 100 ; Step size: 0.01 ; Optimizer: Adam ; Regulizer: 0 ; Max FOM : 3.54032468105 ; Weight Initializer: he_normal (2 background)  
 
 #Unusable:
  **Model_Ver_11_a** : Neuron-Layers 12 24 18 12 6 1 ; Activation: ReLu ; Output: Sigmoid ; Batch size:3000 ; Epochs: 100 ; Step size: 0.005 ; Optimizer: Adam ; Regulizer: 0 ; Max FOM : 2.65566637017 ; Weight Initializer he_normal 
