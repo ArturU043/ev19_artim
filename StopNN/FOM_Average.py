@@ -32,8 +32,8 @@ if __name__ == "__main__":
 
         i = i + 1
 
-    print("%s".format(list_Cut))
-    print("%s".format(list_Evo))
-    
+    print(.format(list_Cut))
+    print(.format(list_Evo))
+
     #Creating a new file where average will be stored:
 #    f = open(filepath+"Average_of_FOM_evo_data.txt","w+")
