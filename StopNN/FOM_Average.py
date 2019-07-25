@@ -41,8 +41,8 @@ if __name__ == "__main__":
 
 #        i = i + 1
 
-    print(list_Cut, list_Cut[1][0])
-    print(list_Evo, list_Evo[1][0])
+    print(list_Cut, list_Cut[1][0], list_Cut[2][0]
+    print(list_Evo, list_Evo[1][0], list_Evo [0][2])
 
     #Creating a new file where average will be stored:
 #    f = open(filepath+"Average_of_FOM_evo_data.txt","w+")
