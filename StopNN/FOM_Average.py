@@ -52,10 +52,11 @@ if __name__ == "__main__":
             list_ave_Evo[i] = (list_ave_Evo[i] + list_Evo[a][i])/(len(list))
             a = a + 1
         i = i + 1
-    print(len(list))
-    print(list_Cut[0][1])
-    print(list_Cut[1][1])
+
     print(list_ave_Cut[1])
+    print(list_ave_Cut[2])
+    print(list_ave_Cut[3])
+
     #print(list_Evo[1][1], list_Evo [2][1], list_ave_Evo[1])
 
     #Creating a new file where average will be stored:
