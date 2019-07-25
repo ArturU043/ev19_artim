@@ -2,6 +2,8 @@ import os
 import localConfig as cfg
 import numpy as np
 import matplotlib.pyplot as plt
+from commonFunctions import assure_path_exists
+from shutil import copyfile
 
 
 if __name__ == "__main__":
@@ -35,7 +37,7 @@ if __name__ == "__main__":
         list_ave_Evo.append(0.0)
         i = i + 1
     i = 0
-    while (i < len(list_Evo[1]):
+    while (i < len(list_Evo[1])):
         a = 0
         ave_Evo=0
         while (a < len(list)):
@@ -45,8 +47,11 @@ if __name__ == "__main__":
         i = i + 1
 
     #Creating a new file where average will be stored:
-#    assure_path_exists()
-#    f = open(testpath + paul[:1] + "_average_FOM_evo_.txt","w+")
-    print paul[:1]
-#    f.write("\n".join(map(str,fomEvo)))
-#    f.close()
+    averagepath = testpath + "Model_Ver_" + paul[:2] + "_average/plots_Model_Ver_" + paul[:2] + "_average/"
+    assure_path_exists(averagepath)
+
+    f = open(averagepath + "FOM_evo_data.txt","w+")
+    f.write("\n".join(map(str,list_ave_Evo)))
+    f.close()
+
+    copyfile(testpath + "Model_Ver_10/plots_Model_Ver_10/FOM_cut_data.txt", averagepath + "FOM_cut_data.txt")
