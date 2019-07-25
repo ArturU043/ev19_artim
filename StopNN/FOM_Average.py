@@ -43,8 +43,8 @@ if __name__ == "__main__":
             a = a + 1
         i = i + 1
 
-    print(list_Cut[1][1], list_Cut[2][1], list_sum_Cut[1])
-    print(list_Evo[1][1], list_Evo [2][1], list_sum_Evo[1])
+    print(list_Cut[1][1], list_Cut[2][1], list_ave_Cut[1])
+    print(list_Evo[1][1], list_Evo [2][1], list_ave_Evo[1])
 
     #Creating a new file where average will be stored:
-#    f = open(filepath+"Average_of_FOM_evo_data.txt","w+")
+#    f = open(qqpart+"Average_of_FOM_evo_data.txt","w+")
