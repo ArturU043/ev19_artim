@@ -24,38 +24,29 @@ if __name__ == "__main__":
 
     #Importing data in lists used to calculate average:
     i = 0
-    list_Cut = []
     list_Evo = []
     while (i < len(path)):
-        list_Cut.append(np.loadtxt(path[i]+"FOM_cut_data.txt",delimiter="\n"))
         list_Evo.append(np.loadtxt(path[i]+"FOM_evo_data.txt",delimiter="\n"))
-
         i = i + 1
 
     i = 1
-
-    list_ave_Cut = []
     list_ave_Evo = []
-
-    while (i < len(list_Cut[1])):
-        list_ave_Cut.append(0.0)
+    while (i < len(list_Evo[1])):
         list_ave_Evo.append(0.0)
         i = i + 1
-    print(len(list_Cut[1]))
     i = 1
-    while (i < 4):#len(list_Cut[1])):
+    while (i < 4):#len(list_Evo[1])):
         a = 0
+        ave_Evo=0
         while (a < len(list)):
-            print(list_Cut[a][i])
-            print(list_ave_Cut[i])
-            list_ave_Cut[i] = (list_ave_Cut[i] + list_Cut[a][i])/(len(list))
-            list_ave_Evo[i] = (list_ave_Evo[i] + list_Evo[a][i])/(len(list))
+            ave_Evo = ave_Evo + list_Evo[a][i]
             a = a + 1
+        list_ave_Evo[i] = ave_Evo/len(list)
         i = i + 1
 
-    print(list_ave_Cut[1])
-    print(list_ave_Cut[2])
-    print(list_ave_Cut[3])
+    print(list_ave_Evo[1])
+    print(list_ave_Evo[2])
+    print(list_ave_Evo[3])
 
     #print(list_Evo[1][1], list_Evo [2][1], list_ave_Evo[1])
 
