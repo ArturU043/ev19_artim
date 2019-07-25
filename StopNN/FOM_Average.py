@@ -90,7 +90,7 @@ if __name__ == "__main__":
 
     copyfile(testpath + "Model_Ver_10/plots_Model_Ver_10/FOM_cut_data.txt", averagepath + "FOM_cut_data.txt")
 
-    print("Model_Ver_" + paul[:2] + "average saved! :-)"
+    print("Model_Ver_" + paul[:2] + "-average saved! :-)")
 
     if args.env:
 
@@ -102,4 +102,4 @@ if __name__ == "__main__":
         f.write("\n".join(map(str,list_min_env)))
         f.close()
 
-        print("Envelope saved in Model_Ver_" + paul[:2] + "average/" +":D")
+        print("Envelope saved in Model_Ver_" + paul[:2] + "_average/" +":D")
