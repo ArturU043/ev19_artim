@@ -92,10 +92,10 @@ if __name__ == "__main__":
 
     if args.env:
 
-        f = open(averagepath + "FOM_evo_data.txt","w+")
+        f = open(averagepath + "FOM_max_data.txt","w+")
         f.write("\n".join(map(str,list_max_env)))
         f.close()
 
-        f = open(averagepath + "FOM_evo_data.txt","w+")
+        f = open(averagepath + "FOM_min_data.txt","w+")
         f.write("\n".join(map(str,list_min_env)))
         f.close()
