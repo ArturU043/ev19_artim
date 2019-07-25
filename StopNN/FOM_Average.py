@@ -32,17 +32,19 @@ if __name__ == "__main__":
 
         i = i + 1
 
-#    i = 0
-#    list_sum_Cut = []
-#    list_sum_Evo = []
-#    while (i < len(list_Cut)):
-#        list_sum_Cut = list_Cut[][]
-#        list_sum_Evo
+    i = 0
+    a = 0
+    list_sum_Cut = []
+    list_sum_Evo = []
+    while (i < len(list_Cut[1])):
+        while (a < len(list)):
+            list_sum_Cut[a][i] = list_sum_Cut[a][i] + list_Cut[a][i])
+            list_sum_Evo[a][i] = list_sum_Evo[a][i] + list_Evo[a][i])
+            a = a + 1
+        i = i + 1
 
-#        i = i + 1
-
-    print(list_Cut, list_Cut[1][0], list_Cut[2][0])
-    print(list_Evo, list_Evo[1][0], list_Evo [0][2])
+    print(list_Cut[1][1], list_Cut[2][1], list_sum_Cut[1])
+    print(list_Evo[1][1], list_Evo [2][1], list_sum_Evo[1])
 
     #Creating a new file where average will be stored:
 #    f = open(filepath+"Average_of_FOM_evo_data.txt","w+")
