@@ -11,8 +11,8 @@ if __name__ == "__main__":
     parser.add_argument('-i', '--version', type=str, required=True, help="Select the model to average and plot")
 
     args = parser.parse_args()
-    list = args.version
-    list = list.split()
+    paul = args.version
+    list = paul.split()
 
     #Creating a list with filepaths:
     testpath = cfg.lgbk+"test/"
@@ -29,13 +29,13 @@ if __name__ == "__main__":
         list_Evo.append(np.loadtxt(path[i]+"FOM_evo_data.txt",delimiter="\n"))
         i = i + 1
 
-    i = 1
+    i = 0
     list_ave_Evo = []
     while (i < len(list_Evo[1])):
         list_ave_Evo.append(0.0)
         i = i + 1
-    i = 1
-    while (i < 4):#len(list_Evo[1])):
+    i = 0
+    while (i < len(list_Evo[1]):
         a = 0
         ave_Evo=0
         while (a < len(list)):
@@ -44,11 +44,9 @@ if __name__ == "__main__":
         list_ave_Evo[i] = ave_Evo/len(list)
         i = i + 1
 
-    print(list_ave_Evo[1])
-    print(list_ave_Evo[2])
-    print(list_ave_Evo[3])
-
-    #print(list_Evo[1][1], list_Evo [2][1], list_ave_Evo[1])
-
     #Creating a new file where average will be stored:
-#    f = open(qqpart+"Average_of_FOM_evo_data.txt","w+")
+#    assure_path_exists()
+#    f = open(testpath + paul[:1] + "_average_FOM_evo_.txt","w+")
+    print paul[:1]
+#    f.write("\n".join(map(str,fomEvo)))
+#    f.close()
