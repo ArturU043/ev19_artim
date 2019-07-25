@@ -36,15 +36,15 @@ if __name__ == "__main__":
     a = 0
     list_ave_Cut = []
     list_ave_Evo = []
-    while (i < len(list_Cut[1])):
-        while (a < len(list)):
-            list_ave_Cut[a][i] = (list_ave_Cut[a][i] + list_Cut[a][i])/(len(list))
-            list_ave_Evo[a][i] = (list_ave_Evo[a][i] + list_Evo[a][i])/(len(list))
-            a = a + 1
-        i = i + 1
+#    while (i < len(list_Cut[1])):
+#        while (a < len(list)):
+#            list_ave_Cut[a][i] = (list_ave_Cut[a][i] + list_Cut[a][i])/(len(list))
+#            list_ave_Evo[a][i] = (list_ave_Evo[a][i] + list_Evo[a][i])/(len(list))
+#            a = a + 1
+#        i = i + 1
 
-    print(list_Cut[1][1], list_Cut[2][1], list_ave_Cut[1])
-    print(list_Evo[1][1], list_Evo [2][1], list_ave_Evo[1])
+    print(list_Cut[0][0], list_Cut[1][0])
+    #print(list_Evo[1][1], list_Evo [2][1], list_ave_Evo[1])
 
     #Creating a new file where average will be stored:
 #    f = open(qqpart+"Average_of_FOM_evo_data.txt","w+")
