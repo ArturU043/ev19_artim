@@ -32,8 +32,8 @@ if __name__ == "__main__":
 
         i = i + 1
 
-    i = 0
-    a = 1
+    i = 1
+    a = 0
     list_ave_Cut = []
     list_ave_Evo = []
     while (i < len(list_Cut[1])):
