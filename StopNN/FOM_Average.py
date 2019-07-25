@@ -48,8 +48,7 @@ if __name__ == "__main__":
 
     #Creating a new file where average will be stored:
     averagepath = testpath + "Model_Ver_" + paul[:2] + "_average/plots_Model_Ver_" + paul[:2] + "_average/"
-    assure_path_exists(averagepath)
-
+    
     f = open(averagepath + "FOM_evo_data.txt","w+")
     f.write("\n".join(map(str,list_ave_Evo)))
     f.close()
