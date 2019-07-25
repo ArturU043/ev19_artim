@@ -34,12 +34,12 @@ if __name__ == "__main__":
 
     i = 0
     a = 0
-    list_sum_Cut = []
-    list_sum_Evo = []
+    list_ave_Cut = []
+    list_ave_Evo = []
     while (i < len(list_Cut[1])):
         while (a < len(list)):
-            list_sum_Cut[a][i] = list_sum_Cut[a][i] + list_Cut[a][i])
-            list_sum_Evo[a][i] = list_sum_Evo[a][i] + list_Evo[a][i])
+            list_ave_Cut[a][i] = (list_sum_Cut[a][i] + list_Cut[a][i])/(len(list))
+            list_ave_Evo[a][i] = (list_sum_Evo[a][i] + list_Evo[a][i])/(len(list))
             a = a + 1
         i = i + 1
 
