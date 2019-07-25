@@ -43,7 +43,8 @@ if __name__ == "__main__":
 #            a = a + 1
 #        i = i + 1
 
-    print(list_Cut[0][0], list_Cut[1][0])
+    print(list_Cut[0][0])
+    print(list_Cut[1][0])
     #print(list_Evo[1][1], list_Evo [2][1], list_ave_Evo[1])
 
     #Creating a new file where average will be stored:
