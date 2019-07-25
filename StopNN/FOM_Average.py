@@ -41,9 +41,9 @@ if __name__ == "__main__":
         list_ave_Cut.append(0.0)
         list_ave_Evo.append(0.0)
         i = i + 1
-    print(list_Cut[1])
+    print(len(list_Cut[1]))
     i = 1
-    while (i < len(list_Cut[1])):
+    while (i < 4):#len(list_Cut[1])):
         a = 0
         while (a < len(list)):
             print(list_Cut[a][i])
