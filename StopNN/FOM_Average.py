@@ -11,7 +11,6 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="Chose models to plot fom")
     parser.add_argument('-i', '--version', type=str, required=True, help="Select the model to average and plot")
-    parser.add_argument('-env', '--env', action='store_true',  help="Used to draw an envelope in the average plot")
 
     args = parser.parse_args()
     paul = args.version
@@ -92,14 +91,13 @@ if __name__ == "__main__":
 
     print("Model_Ver_" + paul[:2] + "-average saved! :-)")
 
-    if args.env:
+    #Storing data used to draw the envelope
+    f = open(averagepath + "FOM_max_data.txt","w+")
+    f.write("\n".join(map(str,list_max_env)))
+    f.close()
 
-        f = open(averagepath + "FOM_max_data.txt","w+")
-        f.write("\n".join(map(str,list_max_env)))
-        f.close()
+    f = open(averagepath + "FOM_min_data.txt","w+")
+    f.write("\n".join(map(str,list_min_env)))
+    f.close()
 
-        f = open(averagepath + "FOM_min_data.txt","w+")
-        f.write("\n".join(map(str,list_min_env)))
-        f.close()
-
-        print("Envelope saved in Model_Ver_" + paul[:2] + "_average/" +":D")
+    print("Envelope saved in Model_Ver_" + paul[:2] + "_average/" +":D")
