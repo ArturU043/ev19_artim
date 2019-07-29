@@ -51,30 +51,29 @@ if __name__ == "__main__":
         i = i + 1
 
     #Envelope:
-    if args.env:
-        #Initializing envelope
-        list_max_env = []
-        list_min_env = []
-        i = 0
-        while i < len((list_Evo[1])):
-            list_max_env.append(0.0)
-            list_min_env.append(0.0)
-            i = i + 1
-        #taking envelope's values
-        i = 0
-        while (i < len(list_Evo[1])):
-            a = 0
-            b = 0
-            c = 100000000
-            while (a < len(list)):
-                if list_Evo[a][i] > b :
-                    b = list_Evo[a][i]
-                if list_Evo[a][i] < c :
-                    c = list_Evo[a][i]
-                a = a + 1
-            list_max_env[i] = b
-            list_min_env[i] = c
-            i = i + 1
+    #Initializing envelope
+    list_max_env = []
+    list_min_env = []
+    i = 0
+    while i < len((list_Evo[1])):
+        list_max_env.append(0.0)
+        list_min_env.append(0.0)
+        i = i + 1
+    #taking envelope's values
+    i = 0
+    while (i < len(list_Evo[1])):
+        a = 0
+        b = 0
+        c = 100000000
+        while (a < len(list)):
+            if list_Evo[a][i] > b :
+                b = list_Evo[a][i]
+            if list_Evo[a][i] < c :
+                c = list_Evo[a][i]
+            a = a + 1
+        list_max_env[i] = b
+        list_min_env[i] = c
+        i = i + 1
 
 
     #Creating a new file where average will be stored:
