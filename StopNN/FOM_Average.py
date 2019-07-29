@@ -32,7 +32,7 @@ if __name__ == "__main__":
         list_Evo.append(np.loadtxt(path[i]+"FOM_evo_data.txt",delimiter="\n"))
         i = i + 1
 
-    #Initializing
+    #Initializing average list:
     i = 0
     list_ave_Evo = []
     while (i < len(list_Evo[1])):
@@ -88,7 +88,7 @@ if __name__ == "__main__":
 
     copyfile(testpath + "Model_Ver_10/plots_Model_Ver_10/FOM_cut_data.txt", averagepath + "FOM_cut_data.txt")
 
-    print("Model_Ver_" + paul[:2] + "-average saved! :-)")
+    print("Model_Ver_" + paul[:2] + "_average saved! :-)")
 
     #Storing data used to draw the envelope
     f = open(averagepath + "FOM_max_data.txt","w+")
