@@ -32,7 +32,7 @@ if __name__ == "__main__":
         list_Evo.append(np.loadtxt(path[i]+"FOM_evo_data.txt",delimiter="\n"))
         i = i + 1
 
-    #Initializing
+    #Initializing average list:
     i = 0
     list_ave_Evo = []
     while (i < len(list_Evo[1])):
@@ -51,30 +51,29 @@ if __name__ == "__main__":
         i = i + 1
 
     #Envelope:
-    if args.env:
-        #Initializing envelope
-        list_max_env = []
-        list_min_env = []
-        i = 0
-        while i < len((list_Evo[1])):
-            list_max_env.append(0.0)
-            list_min_env.append(0.0)
-            i = i + 1
-        #taking envelope's values
-        i = 0
-        while (i < len(list_Evo[1])):
-            a = 0
-            b = 0
-            c = 100000000
-            while (a < len(list)):
-                if list_Evo[a][i] > b :
-                    b = list_Evo[a][i]
-                if list_Evo[a][i] < c :
-                    c = list_Evo[a][i]
-                a = a + 1
-            list_max_env[i] = b
-            list_min_env[i] = c
-            i = i + 1
+    #Initializing envelope
+    list_max_env = []
+    list_min_env = []
+    i = 0
+    while i < len((list_Evo[1])):
+        list_max_env.append(0.0)
+        list_min_env.append(0.0)
+        i = i + 1
+    #taking envelope's values
+    i = 0
+    while (i < len(list_Evo[1])):
+        a = 0
+        b = 0
+        c = 100000000
+        while (a < len(list)):
+            if list_Evo[a][i] > b :
+                b = list_Evo[a][i]
+            if list_Evo[a][i] < c :
+                c = list_Evo[a][i]
+            a = a + 1
+        list_max_env[i] = b
+        list_min_env[i] = c
+        i = i + 1
 
 
     #Creating a new file where average will be stored:
@@ -89,7 +88,7 @@ if __name__ == "__main__":
 
     copyfile(testpath + "Model_Ver_10/plots_Model_Ver_10/FOM_cut_data.txt", averagepath + "FOM_cut_data.txt")
 
-    print("Model_Ver_" + paul[:2] + "-average saved! :-)")
+    print("Model_Ver_" + paul[:2] + "_average saved! :-)")
 
     #Storing data used to draw the envelope
     f = open(averagepath + "FOM_max_data.txt","w+")
