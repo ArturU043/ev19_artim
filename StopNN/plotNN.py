@@ -253,18 +253,20 @@ if __name__ == "__main__":
 
         #SAVE VALUES OF FOM EVO AND CUT TO DO A FOM SUMMARY
         f= open(plots_path+"FOM_evo_data.txt","w+")
-
         f.write("\n".join(map(str,fomEvo)))
         f.close()
 
         f= open(plots_path+"FOM_cut_data.txt","w+")
-
         f.write("\n".join(map(str,fomCut)))
         f.close()
 
+        f= open(plots_path+"bkg_eff_data.txt","w+")
+        f.write("\n".join(map(str, bkgEff)))
+        f.close()
 
-
-
+        f= open(plots_path+"sig_eff_data.txt","w+")
+        f.write("\n".join(map(sig, sigEff)))
+        f.close()
 
 
         Eff = zip(bkgEff, sigEff)
