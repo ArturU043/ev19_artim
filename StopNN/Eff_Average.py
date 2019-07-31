@@ -70,16 +70,4 @@ if __name__ == "__main__":
     f.write("\n".join(map(str,sigEff_ave)))
     f.close()
 
-    print("Efficiency curves saved in Model_Ver_" + paul[:2] + "_average/" +":-O")
-
-    fom_Cut = np.loadtxt(averagepath+"FOM_cut_data.txt",delimiter="\n")
-
-    plt.figure()
-    plt.plot(fom_Cut,bkgEff_ave , label="Background efficiency")
-    plt.plot(fom_Cut,sigEff_ave , label="Sgnal efficiency")
-
-    plt.title("Efficiency Average")
-    plt.ylabel("Eff")
-    plt.xlabel("NN output")
-    plt.legend()
-    plt.show()
+    print("Efficiency data saved in Model_Ver_" + paul[:2] + "_average/" +":-O")
