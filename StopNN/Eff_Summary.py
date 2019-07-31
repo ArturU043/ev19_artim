@@ -11,9 +11,9 @@ if __name__ == "__main__":
 
     parser=argparse.ArgumentParser(description="Chose models to plot fom")
     parser.add_argument('-i', '--version', type=str, required=True, help="Select the models to plot together in same plot graphic with differents plots foms ")
-    args=parser.parse_args()
-    list=args.version
-    list=list.split()
+    args = parser.parse_args()
+    paul = args.version
+    list = paul.split()
     testpath = cfg.lgbk+"test/"
     averagepath = testpath + "Model_Ver_" + paul[:2] + "_average/plots_Model_Ver_" + paul[:2] + "_average/"
 
