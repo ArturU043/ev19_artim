@@ -23,7 +23,7 @@ preselection = "(DPhiJet1Jet2 < 2.5 || Jet2Pt < 60) && (Met > 280) && (HT > 200)
 suffix =""# "_skimmed"
 luminosity = 35866
 number_of_events_print = 1
-test_point = "550_520"
+test_point = "DM30"
 train_DM = "DM30"
 
 print "Loading datasets..."
