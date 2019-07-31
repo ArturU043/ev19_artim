@@ -14,6 +14,8 @@ if __name__ == "__main__":
     args=parser.parse_args()
     list=args.version
     list=list.split()
+    testpath = cfg.lgbk+"test/"
+    averagepath = testpath + "Model_Ver_" + paul[:2] + "_average/plots_Model_Ver_" + paul[:2] + "_average/"
 
     ##Creating list with file path
     testpath=cfg.lgbk+"test/"
