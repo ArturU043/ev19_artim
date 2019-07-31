@@ -57,8 +57,8 @@ if __name__ == "__main__":
             bkgEff_ave = bkgEff_ave + bkgEff[a][i]
             sigEff_ave = sigEff_ave + sigEff[a][i]
             a = a + 1
-        bkgEff_ave[i] = bkgEff_ave/len(list)
-        bkgEff_ave[i] = bkgEff_ave/len(list)
+        bkgEff_ave[i] = bkgEff_ave[i]/len(list)
+        bkgEff_ave[i] = bkgEff_ave[i]/len(list)
         i = i + 1
 
     #Storing data used to draw the efficiency
