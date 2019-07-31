@@ -51,14 +51,14 @@ if __name__ == "__main__":
     i = 0
     while (i < len(bkgEff[1])):
         a = 0
-        bkgEff_ave = 0
-        sigEff_ave = 0
+        b_ave = 0
+        s_ave = 0
         while (a < len(list)):
-            bkgEff_ave = bkgEff_ave + bkgEff[a][i]
-            sigEff_ave = sigEff_ave + sigEff[a][i]
+            b_ave = b_ave + bkgEff[a][i]
+            s_ave = s_ave + sigEff[a][i]
             a = a + 1
-        bkgEff_ave[i] = bkgEff_ave[i]/len(list)
-        bkgEff_ave[i] = bkgEff_ave[i]/len(list)
+        bkgEff_ave[i] = b_ave/len(list)
+        sigEff_ave[i] = s_ave/len(list)
         i = i + 1
 
     #Storing data used to draw the efficiency
