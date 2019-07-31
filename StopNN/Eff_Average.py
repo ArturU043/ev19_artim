@@ -72,6 +72,7 @@ if __name__ == "__main__":
 
     print("Efficiency curves saved in Model_Ver_" + paul[:2] + "_average/" +":-O")
 
+    fom_Cut = np.loadtxt(averagepath+"FOM_cut_data.txt",delimiter="\n")
 
     plt.figure()
     plt.plot(fom_Cut,bkgEff_ave , label="Background efficiency")
