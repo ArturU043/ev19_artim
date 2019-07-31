@@ -15,6 +15,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
     paul = args.version
     list = paul.split()
+    testpath = cfg.lgbk+"test/"
+    averagepath = testpath + "Model_Ver_" + paul[:2] + "_average/plots_Model_Ver_" + paul[:2] + "_average/"
 
 
     #Creating a list with filepaths:
@@ -69,3 +71,14 @@ if __name__ == "__main__":
     f.close()
 
     print("Efficiency curves saved in Model_Ver_" + paul[:2] + "_average/" +":-O")
+
+
+    plt.figure()
+    plt.plot(fom_Cut,bkgEff_ave , label="Background efficiency")
+    plt.plot(fom_Cut,sigEff_ave , label="Sgnal efficiency")
+
+    plt.title("Efficiency Average")
+    plt.ylabel("Eff")
+    plt.xlabel("NN output")
+    plt.legend()
+    plt.show()
