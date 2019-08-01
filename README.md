@@ -1,4 +1,4 @@
-                                                HOW TO USE THIS GITHUB PAGE
+                                        HOW TO USE THIS GITHUB PAGE
                  
  
 * In the "Plots" folder, there is only basic plots we did the first week or so, and interesting results (or so we thought).
@@ -17,7 +17,7 @@ The last update of PlotNN.py is saving efficiency data in .txt files, latter use
                                                   
                                                   
                                                   
-                                                 INFOS ET SITES UTILES 
+                                        INFOS ET SITES UTILES 
                                                          
     To DO LIST:
     * improve: -Regulazers (dropouts)
