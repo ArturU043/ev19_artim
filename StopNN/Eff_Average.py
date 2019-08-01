@@ -15,6 +15,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
     paul = args.version
     list = paul.split()
+    testpath = cfg.lgbk+"test/"
+    averagepath = testpath + "Model_Ver_" + paul[:2] + "_average/plots_Model_Ver_" + paul[:2] + "_average/"
 
 
     #Creating a list with filepaths:
@@ -49,14 +51,14 @@ if __name__ == "__main__":
     i = 0
     while (i < len(bkgEff[1])):
         a = 0
-        bkgEff_ave = 0
-        sigEff_ave = 0
+        b_ave = 0
+        s_ave = 0
         while (a < len(list)):
-            bkgEff_ave = bkgEff_ave + bkgEff[a][i]
-            sigEff_ave = sigEff_ave + sigEff[a][i]
+            b_ave = b_ave + bkgEff[a][i]
+            s_ave = s_ave + sigEff[a][i]
             a = a + 1
-        bkgEff_ave[i] = bkgEff_ave/len(list)
-        bkgEff_ave[i] = bkgEff_ave/len(list)
+        bkgEff_ave[i] = b_ave/len(list)
+        sigEff_ave[i] = s_ave/len(list)
         i = i + 1
 
     #Storing data used to draw the efficiency
@@ -68,4 +70,4 @@ if __name__ == "__main__":
     f.write("\n".join(map(str,sigEff_ave)))
     f.close()
 
-    print("Efficiency curves saved in Model_Ver_" + paul[:2] + "_average/" +":-O")
+    print("Efficiency data saved in Model_Ver_" + paul[:2] + "_average/" +":-O")

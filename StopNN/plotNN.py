@@ -261,11 +261,11 @@ if __name__ == "__main__":
         f.close()
 
         f= open(plots_path+"bkg_eff_data.txt","w+")
-        f.write("\n".join(map(str, bkgEff)))
+        f.write("\n".join(map(str,bkgEff)))
         f.close()
 
         f= open(plots_path+"sig_eff_data.txt","w+")
-        f.write("\n".join(map(sig, sigEff)))
+        f.write("\n".join(map(str,sigEff)))
         f.close()
 
 
