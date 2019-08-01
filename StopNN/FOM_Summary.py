@@ -18,11 +18,11 @@ if __name__ == "__main__":
 
     ##Creating list with file path
 
-    testpath=cfg.lgbk+"test/"
+    modelpath=cfg.lgbk+"Models/"
     i=0
     path=[]
     while i<len(list) :
-        path.append(testpath+"Model_Ver_"+str(list[i])+"/plots_Model_Ver_"+str(list[i])+"/")
+        path.append(modelpath+"Model_Ver_"+str(list[i])+"/plots_Model_Ver_"+str(list[i])+"/")
         i=i+1
 
 
@@ -76,4 +76,3 @@ if __name__ == "__main__":
     plt.xlabel("NN output")
     plt.legend()
     plt.show()
-

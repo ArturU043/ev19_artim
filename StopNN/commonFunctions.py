@@ -300,7 +300,7 @@ def arange(array, min, max):
     return array
 
 
-# Plots
+# Plots in binary
 
 import os
 import matplotlib.pyplot as plt
@@ -319,7 +319,7 @@ def plotter(path,Ylabel,Title):
 
 
 
-# A r c h i t e c t
+# A r c h i t e c t (couldnt use this part as a call function)
 
 import keras
 from keras import *

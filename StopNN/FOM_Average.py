@@ -18,11 +18,11 @@ if __name__ == "__main__":
 
 
     #Creating a list with filepaths:
-    testpath = cfg.lgbk+"test/"
+    modelpath = cfg.lgbk+"Models/"
     i = 0
     path = []
     while (i < len(list)) :
-        path.append(testpath+"Model_Ver_"+str(list[i])+"/plots_Model_Ver_"+str(list[i])+"/")
+        path.append(modelpath+"Model_Ver_"+str(list[i])+"/plots_Model_Ver_"+str(list[i])+"/")
         i = i + 1
 
     #Importing data in lists used to compute average:
@@ -78,16 +78,16 @@ if __name__ == "__main__":
 
 
     #Creating a new file where average will be stored:
-    averagepath = testpath + "Model_Ver_" + paul[:2] + "_average/plots_Model_Ver_" + paul[:2] + "_average/"
+    averagepath = modelpath + "Model_Ver_" + paul[:2] + "_average/plots_Model_Ver_" + paul[:2] + "_average/"
 
-    assure_path_exists(testpath + "Model_Ver_" + paul[:2] + "_average/")
-    assure_path_exists(testpath + "Model_Ver_" + paul[:2] + "_average/plots_Model_Ver_" + paul[:2] + "_average/")
+    assure_path_exists(modelpath + "Model_Ver_" + paul[:2] + "_average/")
+    assure_path_exists(modelpath + "Model_Ver_" + paul[:2] + "_average/plots_Model_Ver_" + paul[:2] + "_average/")
 
     f = open(averagepath + "FOM_evo_data.txt","w+")
     f.write("\n".join(map(str,list_ave_Evo)))
     f.close()
 
-    copyfile(testpath + "Model_Ver_10/plots_Model_Ver_10/FOM_cut_data.txt", averagepath + "FOM_cut_data.txt")
+    copyfile(modelpath + "Model_Ver_10/plots_Model_Ver_10/FOM_cut_data.txt", averagepath + "FOM_cut_data.txt")
 
     print("Model_Ver_" + paul[:2] + "_average saved! :-)")
 

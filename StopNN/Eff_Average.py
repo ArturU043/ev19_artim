@@ -15,16 +15,17 @@ if __name__ == "__main__":
     args = parser.parse_args()
     paul = args.version
     list = paul.split()
-    testpath = cfg.lgbk+"test/"
-    averagepath = testpath + "Model_Ver_" + paul[:2] + "_average/plots_Model_Ver_" + paul[:2] + "_average/"
+    modelpath = cfg.lgbk+"Models/"
+    averagepath = modelpath + "Model_Ver_" + paul[:2] + "_average/plots_Model_Ver_" + paul[:2] + "_average/"
 
-
+    #With paul[:2] we get the two first digits of the models we are comparing , only compare models with
+    #the same 2 first digits ; for more than 2 digits name change the arg 
     #Creating a list with filepaths:
-    testpath = cfg.lgbk+"test/"
+    modelpath = cfg.lgbk+"test/"
     i = 0
     path = []
     while (i < len(list)) :
-        path.append(testpath+"Model_Ver_"+str(list[i])+"/plots_Model_Ver_"+str(list[i])+"/")
+        path.append(modelpath+"Model_Ver_"+str(list[i])+"/plots_Model_Ver_"+str(list[i])+"/")
         i = i + 1
 
     #Initializing empty lists to compute efficiency average:

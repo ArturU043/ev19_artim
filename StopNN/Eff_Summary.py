@@ -14,15 +14,15 @@ if __name__ == "__main__":
     args = parser.parse_args()
     paul = args.version
     list = paul.split()
-    testpath = cfg.lgbk+"test/"
-    averagepath = testpath + "Model_Ver_" + paul[:2] + "_average/plots_Model_Ver_" + paul[:2] + "_average/"
+    modelpath = cfg.lgbk+"test/"
+    averagepath = modelpath + "Model_Ver_" + paul[:2] + "_average/plots_Model_Ver_" + paul[:2] + "_average/"
 
     ##Creating list with file path
-    testpath=cfg.lgbk+"test/"
+    modelpath=cfg.lgbk+"Models/"
     i=0
     path=[]
     while i<len(list) :
-        path.append(testpath+"Model_Ver_"+str(list[i])+"/plots_Model_Ver_"+str(list[i])+"/")
+        path.append(modelpath+"Model_Ver_"+str(list[i])+"/plots_Model_Ver_"+str(list[i])+"/")
         i=i+1
 
     fom_Cut = np.loadtxt(averagepath+"FOM_cut_data.txt",delimiter="\n")
