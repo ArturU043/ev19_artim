@@ -15,7 +15,7 @@ if __name__ == "__main__":
     ## Input arguments. Pay speciall attention to the required ones.
     parser = argparse.ArgumentParser(description='Process the command line options')
     parser.add_argument('-v', '--verbose', action='store_true', help='Whether to print verbose output')
-    parser.add_argument('-f', '--file',type=str, required=True, help='File name')
+    parser.add_argument('-f', '--file',type=str, required=True, help='File name e.g -f "Model_Ver_x" ')
     parser.add_argument('-a', '--allPlots', action='store_true', help='Wether to plot all graphs')
     parser.add_argument('-b', '--loss', action='store_true', help='Loss plot')
     parser.add_argument('-c', '--accuracy', action='store_true', help='Accuracy plot')

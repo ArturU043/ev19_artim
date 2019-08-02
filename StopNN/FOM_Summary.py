@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
 
     parser=argparse.ArgumentParser(description="Chose models to plot fom")
-    parser.add_argument('-i', '--version', type=str, required=True, help="Select the models to plot together in same plot graphic with differents plots foms ")
+    parser.add_argument('-i', '--version', type=str, required=True, help="Select the models to plot together in same plot graphic with differents plots foms e.g -i '10.01 10_average 13' ")
     parser.add_argument('-env', '--env', action='store_true',  help="Used to draw an envelope in the average plot")
     args=parser.parse_args()
     list=args.version

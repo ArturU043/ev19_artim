@@ -10,7 +10,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="Chose models to plot fom")
-    parser.add_argument('-i', '--version', type=str, required=True, help="Select the model to average and plot")
+    parser.add_argument('-i', '--version', type=str, required=True, help="Select the models to average and plot e.g ( -i '14.01 14.02 14.03')")
 
     args = parser.parse_args()
     paul = args.version

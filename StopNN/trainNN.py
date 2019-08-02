@@ -34,11 +34,11 @@ if __name__ == "__main__":
     parser.add_argument('-c', '--decay', type=float, default=0, help='Learning rate decay')
     parser.add_argument('-d', '--dropoutRate', type=float, default=0, help='Drop-out rate')
     parser.add_argument('-r', '--regularizer', type=float, default=0, help='Regularizer')
-    parser.add_argument('-i', '--iteration', type=str, default=1.0, help='Version number i')
+    parser.add_argument('-i', '--iteration', type=str, default=1.0, help='Version number i e.g -i "19.02" ')
     parser.add_argument('-l', '--list', type=str, required=True, help='Defines the architecture of the NN; e.g: -l "14 12 7"  ->3 hidden layers of 14, 12 and 7 neurons respectively (input always 12, output always 1)')
     parser.add_argument('-ini', '--initializer', type=str, default="glorot_uniform", help='Kernel Initializer for hidden layers')
     parser.add_argument('-act', '--act', type=str, default="relu", help='activation function for the hidden neurons')
-    parser.add_argument('-bk', '--bk', action='store_true', help='Whether or not you choose to load Zinv background samples or only W+jets and TTpow')
+    parser.add_argument('-bk', '--bk', action='store_true', help='Whether or not you choose to load Zinv background samples or only W+jets and TTpow (bk = true)')
 
     args = parser.parse_args()
 

@@ -10,7 +10,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="Chose models to plot fom")
-    parser.add_argument('-i', '--version', type=str, required=True, help="Select the model to average and plot")
+    parser.add_argument('-i', '--version', type=str, required=True, help="Select the models to average and plot e.g ( -i '14.01 14.02 14.03')")
 
     args = parser.parse_args()
     paul = args.version
@@ -19,7 +19,7 @@ if __name__ == "__main__":
     averagepath = modelpath + "Model_Ver_" + paul[:2] + "_average/plots_Model_Ver_" + paul[:2] + "_average/"
 
     #With paul[:2] we get the two first digits of the models we are comparing , only compare models with
-    #the same 2 first digits ; for more than 2 digits name change the arg 
+    #the same 2 first digits ; for more than 2 digits name change the arg
     #Creating a list with filepaths:
     modelpath = cfg.lgbk+"test/"
     i = 0

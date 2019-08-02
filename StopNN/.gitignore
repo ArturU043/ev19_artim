@@ -3,7 +3,10 @@ keras-tf/*
 *.so
 *.pcm
 *.root
+*.h5
+*.json
 *.pyc
+*.txt
 *.sav
 .DS_Store
 scaler.sav
