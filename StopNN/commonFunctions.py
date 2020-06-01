@@ -224,7 +224,27 @@ def FullFOM(sIn, bIn, fValue=0.2):
     fom = (fomA - fomB)**0.5
     return (fom, fomErr)
 
-def getYields(dataVal, cut=0.5, luminosity=35866, splitFactor=2):
+def getYields(dataVal, cut=0.5, luminosity=35866):
+    #defines the selected test data
+    selectedVal = dataVal[dataVal.NN>cut]
+
+    #separates the true positives from false negatives
+    selectedSig = selectedVal[selectedVal.category == 1]
+    selectedBkg = selectedVal[selectedVal.category == 0]
+
+    sigYield = np.sum(selectedSig.XS/selectSig.Nevt)
+    sigYieldUnc = np.sqrt(np.sum(np.square(selectedSig.weight)))
+    bkgYield = np.sum(selectedBkg.XS/selectBkg.Nevt)
+    bkgYieldUnc = np.sqrt(np.sum(np.square(selectedBkg.weight)))
+
+    sigYield = sigYield * luminosity
+    sigYieldUnc = sigYieldUnc * luminosity
+    bkgYield = bkgYield * luminosity
+    bkgYieldUnc = bkgYieldUnc * luminosity
+
+    return ((sigYield, sigYieldUnc), (bkgYield, bkgYieldUnc))
+
+def getYields_diogo(dataVal, cut=0.5, luminosity=35866, splitFactor=2):
     #defines the selected test data
     selectedVal = dataVal[dataVal.NN>cut]
 
