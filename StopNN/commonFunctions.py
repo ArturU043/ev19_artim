@@ -237,10 +237,10 @@ def getYields(dataVal, cut=0.5, luminosity=35866):
     bkgYield = np.sum(selectedBkg.XS/selectBkg.Nevt)
     bkgYieldUnc = np.sqrt(np.sum(np.square(selectedBkg.weight)))
 
-    sigYield = sigYield * luminosity
-    sigYieldUnc = sigYieldUnc * luminosity
-    bkgYield = bkgYield * luminosity
-    bkgYieldUnc = bkgYieldUnc * luminosity
+    sigYield = sigYield * luminosity*2
+    sigYieldUnc = sigYieldUnc * luminosity*2
+    bkgYield = bkgYield * luminosity*2
+    bkgYieldUnc = bkgYieldUnc * luminosity*2
 
     return ((sigYield, sigYieldUnc), (bkgYield, bkgYieldUnc))
 
