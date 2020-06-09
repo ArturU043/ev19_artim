@@ -11,8 +11,13 @@ from sklearn.externals import joblib
 from sklearn import decomposition
 
 import localConfig as cfg
-from commonFunctions import StopDataLoader
-
+print("Choose - Full background : 1 ; 3 Main Backgrounds : 2")
+opt=input()
+if opt = 2 :
+    from commonFunctions import StopDataLoader
+if opt = 1 :
+    from full_bckg_loader import StopDataLoader
+    
 fraction = 1
 
 myFeatures = ["Jet1Pt", "Met", "mt", "LepPt", "LepEta", "LepChg", "HT", "NbLoose","Njet", "JetHBpt", "DrJetHBLep", "JetHBCSV"]
